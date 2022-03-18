@@ -34,15 +34,16 @@ void GamePanel::pollEvents() {
 
 void GamePanel::update() {
 	pollEvents();
+	collisionChecker.checkTile(player1);
+	collisionChecker.checkTile(player2);
+	player1.setMovement();
+	player2.setMovement();
 	player1.setPosition();
 	player2.setPosition();
-	collisionChecker.checkTile(player1);
 }
 
 void GamePanel::render() {
 	window->clear();
-
-	setPlayerMovement();
 
 	renderMap();
 
@@ -54,31 +55,6 @@ void GamePanel::render() {
 
 const bool GamePanel::getWindowIsOpen(){
 	return window->isOpen();
-}
-
-void GamePanel::setPlayerMovement() {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) {
-		
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
-		player1.setX(player1.getX() - player1.getSpeed());
-		player1.setSprite("left");
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
-		player1.setX(player1.getX() + player1.getSpeed());
-		player1.setSprite("right");
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::I)) {
-
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::J)) {
-		player2.setX(player2.getX() - player2.getSpeed());
-		player2.setSprite("left");
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::L)) {
-		player2.setX(player2.getX() + player2.getSpeed());
-		player2.setSprite("right");
-	}
 }
 
 void GamePanel::renderMap() {

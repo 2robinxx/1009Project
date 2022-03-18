@@ -11,9 +11,12 @@ private:
 	sf::Texture idleSprite, leftSprite1, leftSprite2, rightSprite1, rightSprite2;
 	sf::RectangleShape hitbox;
 
-	float x, y, speed, fallSpeed, jumpSpeed;
-	int spriteCounter, spriteNum;
-	bool collisionOnFeet, isFalling, isJumping;
+	float x, y;
+	int spriteCounter, spriteNum, speed, fallSpeed, jumpSpeed;
+	bool collisionOnFeet, isFalling, isJumping, isColliding;
+	string direction;
+
+	sf::Keyboard::Key leftKeyPressed, rightKeyPressed, jumpKeyPressed;
 public:
 	Player();
 	Player(int);
@@ -35,6 +38,11 @@ public:
 	bool getFalling();
 	void setJumping(bool);
 	bool getJumping();
+	void setColliding(bool);
+	bool getColliding();
+	void setDirection(string);
+	string getDirection();
+	void setMovement();
 };
 
 #endif

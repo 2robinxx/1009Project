@@ -6,11 +6,26 @@ CollisionChecker::CollisionChecker(TileManager* tileManager) {
 }
 
 void CollisionChecker::checkTile(Player player) {
-	float leftCol = player.getX() / 48;
-	float rightCol = (player.getX() + 48) / 48;
-	float topRow = player.getY() / 48;
-	float bottomRow = (player.getY() + 48) / 48;
-	if (tileManager->tiles[bottomRow][leftCol]->collision == true || tileManager->tiles[bottomRow][rightCol]->collision == true) {
+	int leftCol = player.getX() / 48;
+	int rightCol = (player.getX() + 48) / 48;
+	int topRow = player.getY() / 48;
+	int bottomRow = (player.getY() + 48) / 48;
+
+	if (tileManager->tiles[bottomRow + player.getSpeed()][leftCol]->collision == true || tileManager->tiles[bottomRow + player.getSpeed()][rightCol]->collision == true) {
 		player.setCollisionOnFeet(true);
+	}
+
+	if (player.getJumping() == true) {
+
+	}
+	else if (player.getFalling() == true) {
+		if (player.getDirection() == "left") {
+
+		}
+		else if (player.getDirection() == "right"){
+		}
+	}
+	else {
+
 	}
 }

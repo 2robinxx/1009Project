@@ -1,4 +1,5 @@
 #include "Player.h"
+#include <iostream>
 
 // Constructors / Destructors
 Player::Player() {
@@ -10,12 +11,20 @@ Player::Player(int player) {
 		initSprite(1);
 		x = 103.f;
 		y = 103.f;
+		leftKeyPressed = sf::Keyboard::Key::A;
+		rightKeyPressed = sf::Keyboard::Key::D;
+		jumpKeyPressed = sf::Keyboard::Key::W;
+		direction = "right";
 		initHitbox();
 	}
 	else if (player == 2) {
 		initSprite(2);
 		x = 206.f;
 		y = 206.f;
+		leftKeyPressed = sf::Keyboard::Key::J;
+		rightKeyPressed = sf::Keyboard::Key::L;
+		jumpKeyPressed = sf::Keyboard::Key::I;
+		direction = "left";
 		initHitbox();
 	}
 
@@ -114,21 +123,62 @@ void Player::setCollisionOnFeet(bool collisonOnFeet) {
 }
 
 bool Player::getCollisionOnFeet() {
-	return collisionOnFeet
+	return collisionOnFeet;
 }
 
 void Player::setFalling(bool isFalling) {
 	this->isFalling = isFalling;
 }
 
-bool Player::getCollisionOnFeet() {
+bool Player::getFalling() {
 	return isFalling;
 }
 
-void Player::setCollisionOnFeet(bool collisonOnFeet) {
-	this->collisionOnFeet = collisionOnFeet;
+void Player::setJumping(bool isJumping) {
+	this->isJumping = isJumping;
 }
 
-bool Player::getCollisionOnFeet() {
-	return collisionOnFeet
+bool Player::getJumping() {
+	return isJumping;
+}
+
+void Player::setColliding(bool isColliding) {
+	this->isColliding = isColliding;
+}
+
+bool Player::getColliding() {
+	return isColliding;
+}
+
+void Player::setDirection(string direction) {
+	this->direction = direction;
+}
+
+string Player::getDirection() {
+	return direction;
+}
+
+void Player::setMovement() {
+	if (isFalling == true || isJumping == false) {
+		
+		if (collisionOnFeet == false) {
+			y += fallSpeed;
+			isFalling = true;
+		}
+		else {
+			isFalling = false;
+		}
+
+	}
+
+	if (sf::Keyboard::isKeyPressed(leftKeyPressed)) {
+		x = x - speed;
+		setSprite("left");
+		direction = "left";
+	}
+	if (sf::Keyboard::isKeyPressed(rightKeyPressed)) {
+		x = x + speed;
+		setSprite("right");
+		direction = "right";
+	}
 }

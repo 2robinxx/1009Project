@@ -33,8 +33,6 @@ public:
 	void update();
 	void render();
 	void renderMap();
-
-	void setPlayerMovement();
 };
 
 #endif
