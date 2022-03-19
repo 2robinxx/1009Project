@@ -1,0 +1,7 @@
+﻿  CollisionChecker.cpp
+c:\users\sohwe\documents\visual studio 2017\projects\1009project\1009project\collisionchecker.cpp(9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\sohwe\documents\visual studio 2017\projects\1009project\1009project\collisionchecker.cpp(10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\sohwe\documents\visual studio 2017\projects\1009project\1009project\collisionchecker.cpp(11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\sohwe\documents\visual studio 2017\projects\1009project\1009project\collisionchecker.cpp(12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\sohwe\documents\visual studio 2017\projects\1009project\1009project\collisionchecker.cpp(14): warning C4244: 'argument': conversion from 'float' to 'const unsigned int', possible loss of data
+  1009Project.vcxproj -> C:\Users\sohwe\Documents\Visual Studio 2017\Projects\1009Project\Debug\1009Project.exe
