@@ -2,19 +2,19 @@
 #include <SFML/Graphics.hpp>
 #include "Player.h"
 #include "TileManager.h"
-
-#ifndef COLLISION
-#define COLLISION
+#include <iostream>
 
 using namespace std;
 
+//Object to check collisions within the game.
 class CollisionChecker{
 public:
 	TileManager* tileManager;
 
+	//Constructor/Destructor
 	CollisionChecker(TileManager*);
+	~CollisionChecker();
 
-	void checkTile(Player*);
+	//Functions
+	void checkTileCollision(Player*);
 };
-
-#endif

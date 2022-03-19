@@ -1,11 +1,10 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
-#ifndef PLAYER
-#define PLAYER
+#include <iostream>
 
 using namespace std;
 
+//Object for player 1 and 2.
 class Player {
 private:
 	sf::Texture idleSprite, leftSprite1, leftSprite2, rightSprite1, rightSprite2;
@@ -17,13 +16,19 @@ private:
 	string direction;
 
 	sf::Keyboard::Key leftKeyPressed, rightKeyPressed, jumpKeyPressed;
+
 public:
+	//Constructor/Destructor
 	Player();
 	Player(int);
+	~Player();
 
+	//Functions
 	void initSprite(int);
 	void initHitbox();
+	void setMovement();
 
+	//Interfaces
 	sf::RectangleShape getPlayer();
 	void setPosition();
 	void setSprite(string);
@@ -44,7 +49,4 @@ public:
 	bool getColliding();
 	void setDirection(string);
 	string getDirection();
-	void setMovement();
 };
-
-#endif

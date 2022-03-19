@@ -1,21 +1,46 @@
 #include "TileManager.h"
-#include <fstream>
-#include <sstream>
 
+//Constructors/Destructors
 TileManager::TileManager(){
-	gridLength = 20;
-	gridWidth = 16;
 	readMapFromFile("Sprites/maps/map01.txt");
 	setUpTiles();
 }
 
+TileManager::~TileManager() {
+	cout << "TileManager destroyed." << endl;
+}
+
+//Functions
+//Read the text file to know where to draw each individual tiles into the game.
+void TileManager::readMapFromFile(string map) {
+	ifstream mapFile;
+	mapFile.open(map);
+	string line;
+	int count = 0;
+	int a = 0, b = 0;
+
+	while (getline(mapFile, line)) {
+		istringstream iss(line);
+
+		while (iss >> a) {
+			if (a != ' ') {
+				mapTileNum[count][b] = a;
+				b++;
+			}
+		}
+		count++;
+		b = 0;
+	}
+}
+
+//Place all tiles into the vector according to their position in the game.
 void TileManager::setUpTiles() {
 	int height = 0, width = 0;
 
-	for (int i = 0; i < 50; i++) {
+	for (int i = 0; i < GRID_HEIGHT; i++) {
 
 		vector<Tile*> row;
-		for (int j = 0; j < 16; j++) {
+		for (int j = 0; j < GRID_WIDTH; j++) {
 			if (mapTileNum[i][j] == 0) {
 				row.push_back(new Tile("Sprites/tiles/grass.png", width, height, false, false));
 			}
@@ -42,27 +67,5 @@ void TileManager::setUpTiles() {
 		width = 0;
 		height += 48;
 		tiles.push_back(row);
-	}
-}
-
-void TileManager::readMapFromFile(string map) {
-
-	ifstream mapFile;
-	mapFile.open(map);
-	string line;
-	int count = 0;
-	int a, b = 0;
-
-	while (getline(mapFile, line)) {
-		istringstream iss(line);
-
-		while (iss >> a) {
-			if (a != ' ') {
-				mapTileNum[count][b] = a;
-				b++;
-			}
-		}
-		count++;
-		b = 0;
 	}
 }

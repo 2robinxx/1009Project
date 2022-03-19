@@ -1,18 +1,7 @@
-﻿  CollisionChecker.cpp
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(9,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(10,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(11,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(12,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(22,50): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(23,58): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(33,52): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(44,58): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(55,51): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(56,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(57,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(58,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(79,51): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(80,57): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(81,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(82,42): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+﻿  GamePanel.cpp
+  Main.cpp
+  Player.cpp
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\Player.cpp(104,15): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\Player.cpp(165,9): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
   1009Project.vcxproj -> C:\Users\Soh Wen Yue\source\repos\1009Project\Debug\1009Project.exe

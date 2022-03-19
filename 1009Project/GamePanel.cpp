@@ -1,6 +1,6 @@
 #include "GamePanel.h"
-#include <iostream>
 
+//Constructor/Destructor
 GamePanel::GamePanel() : player1(1), player2(2), tileManager(), collisionChecker(&tileManager){
 	initVariables();
 	initWindow();
@@ -8,8 +8,10 @@ GamePanel::GamePanel() : player1(1), player2(2), tileManager(), collisionChecker
 
 GamePanel::~GamePanel() {
 	delete window;
+	cout << "GamePanel destroyed. Game closed" << endl;
 }
 
+//Functions
 void GamePanel::initVariables() {
 	window = nullptr;
 }
@@ -34,8 +36,8 @@ void GamePanel::pollEvents() {
 
 void GamePanel::update() {
 	pollEvents();
-	collisionChecker.checkTile(&player1);
-	collisionChecker.checkTile(&player2);
+	collisionChecker.checkTileCollision(&player1);
+	collisionChecker.checkTileCollision(&player2);
 	player1.setMovement();
 	player2.setMovement();
 	player1.setPosition();
@@ -44,25 +46,23 @@ void GamePanel::update() {
 
 void GamePanel::render() {
 	window->clear();
-
 	renderMap();
-
 	window->draw(player1.getPlayer());
 	window->draw(player2.getPlayer());
-
 	window->display();
 }
 
-const bool GamePanel::getWindowIsOpen(){
-	return window->isOpen();
-}
-
 void GamePanel::renderMap() {
-	for (int i = 0; i < 50; i++) {
+	for (int i = 0; i < GRID_HEIGHT; i++) {
 
-		for (int j = 0; j < 16; j++) {
-			window->draw(tileManager.tiles[i][j]->sprite);
+		for (int j = 0; j < GRID_WIDTH; j++) {
+			window->draw(tileManager.tiles[i][j]->getSprite());
 		}
 
 	}
+}
+
+//Interfaces
+const bool GamePanel::getWindowIsOpen() {
+	return window->isOpen();
 }

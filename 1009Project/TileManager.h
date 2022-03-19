@@ -2,22 +2,32 @@
 #include <SFML/Graphics.hpp>
 #include "Tile.h"
 #include <vector>
+#include <fstream>
+#include <sstream>
 
-#ifndef TILEMANAGER
-#define TILEMANAGER
+#ifndef GRID_HEIGHT
+	#define GRID_HEIGHT 50
+#endif
+
+#ifndef GRID_WIDTH
+	#define GRID_WIDTH 16
+#endif
 
 using namespace std;
 
+//Object to handle drawing all the tiles into the game.
 class TileManager {
+private:
+	int mapTileNum[GRID_HEIGHT][GRID_WIDTH];
+
 public:
+	vector<vector<Tile*>> tiles;
 
-	vector<vector<Tile *>> tiles;
-	int gridLength, gridWidth;
-	int mapTileNum[50][16];
-	
+	//Constructor/Destructor
 	TileManager();
-	void setUpTiles();
-	void readMapFromFile(string);
-};
+	~TileManager();
 
-#endif
+	//Functions
+	void readMapFromFile(string);
+	void setUpTiles();
+};
