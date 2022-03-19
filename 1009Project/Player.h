@@ -8,7 +8,7 @@ using namespace std;
 class Player {
 private:
 	sf::Texture idleSprite, leftSprite1, leftSprite2, rightSprite1, rightSprite2;
-	sf::RectangleShape hitbox;
+	sf::RectangleShape sprite;
 
 	float x, y;
 	int spriteCounter, spriteNum, speed, fallSpeed, jumpSpeed, jumpTo;
@@ -19,7 +19,6 @@ private:
 
 public:
 	//Constructor/Destructor
-	Player();
 	Player(int);
 	~Player();
 
@@ -29,7 +28,7 @@ public:
 	void setMovement();
 
 	//Interfaces
-	sf::RectangleShape getPlayer();
+	sf::RectangleShape getSprite();
 	void setPosition();
 	void setSprite(string);
 	void setX(float);

@@ -47,8 +47,8 @@ void GamePanel::update() {
 void GamePanel::render() {
 	window->clear();
 	renderMap();
-	window->draw(player1.getPlayer());
-	window->draw(player2.getPlayer());
+	window->draw(player1.getSprite());
+	window->draw(player2.getSprite());
 	window->display();
 }
 

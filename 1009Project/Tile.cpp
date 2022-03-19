@@ -1,10 +1,6 @@
 #include "Tile.h"
 
 //Constructors/Destructors
-Tile::Tile() {
-
-}
-
 Tile::Tile(string path, bool collision, bool sliding) {
 	setUpSprite(path);
 	this->collision = collision;

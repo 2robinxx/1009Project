@@ -54,9 +54,9 @@ void Player::initSprite(int player) {
 }
 
 void Player::initHitbox() {
-	hitbox = sf::RectangleShape(sf::Vector2f(48.f, 48.f));
-	hitbox.setPosition(x, y);
-	hitbox.setTexture(&idleSprite);
+	sprite = sf::RectangleShape(sf::Vector2f(48.f, 48.f));
+	sprite.setPosition(x, y);
+	sprite.setTexture(&idleSprite);
 }
 
 //Control player's movements
@@ -108,8 +108,8 @@ void Player::setMovement() {
 }
 
 // Interfaces
-sf::RectangleShape Player::getPlayer() {
-	return hitbox;
+sf::RectangleShape Player::getSprite() {
+	return sprite;
 }
 
 void Player::setSprite(string direction) {
@@ -125,24 +125,24 @@ void Player::setSprite(string direction) {
 	}
 	if (direction == "left") {
 		if (spriteNum == 1) {
-			hitbox.setTexture(&leftSprite1);
+			sprite.setTexture(&leftSprite1);
 		}
 		else if (spriteNum == 2) {
-			hitbox.setTexture(&leftSprite2);
+			sprite.setTexture(&leftSprite2);
 		}
 	}
 	if (direction == "right") {
 		if (spriteNum == 1) {
-			hitbox.setTexture(&rightSprite1);
+			sprite.setTexture(&rightSprite1);
 		}
 		else if (spriteNum == 2) {
-			hitbox.setTexture(&rightSprite2);
+			sprite.setTexture(&rightSprite2);
 		}
 	}
 }
 
 void Player::setPosition() {
-	hitbox.setPosition(x, y);
+	sprite.setPosition(x, y);
 }
 
 void Player::setX(float x) {

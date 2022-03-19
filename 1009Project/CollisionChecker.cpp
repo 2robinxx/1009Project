@@ -15,7 +15,7 @@ void CollisionChecker::checkTileCollision(Player* player) {
 	int leftCol = player->getX() / 48;
 	int rightCol = (player->getX() + 48) / 48;
 	int topRow = player->getY() / 48;
-	int bottomRow = (player->getY() + 48 + 4) / 48;
+	int bottomRow = (player->getY() + 48) / 48;
 
 	if (tileManager->tiles[bottomRow][leftCol]->getCollision() == true || tileManager->tiles[bottomRow][rightCol]->getCollision() == true) {
 		player->setCollidingFeet(true);
