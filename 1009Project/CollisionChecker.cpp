@@ -12,14 +12,19 @@ void CollisionChecker::checkTile(Player* player) {
 	int bottomRow = (player->getY() + 48) / 48;
 
 	if (tileManager->tiles[bottomRow][leftCol]->collision == true || tileManager->tiles[bottomRow][rightCol]->collision == true) {
-		player->setCollisionOnFeet(1);
+		player->setCollidingFeet(true);
 	}
 	else {
-		player->setCollisionOnFeet(0);
+		player->setCollidingFeet(false);
 	}
 
 	if (player->getJumping() == true) {
-
+		if (tileManager->tiles[topRow][leftCol]->collision == true || tileManager->tiles[topRow][rightCol]->collision == true) {
+			player->setCollidingHead(true);
+		}
+		else {
+			player->setCollidingHead(false);
+		}
 	}
 	else if (player->getFalling() == true) {
 		if (player->getDirection() == "left") {

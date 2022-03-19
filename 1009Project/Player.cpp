@@ -31,6 +31,7 @@ Player::Player(int player) {
 	speed = 4;
 	jumpSpeed = 8;
 	fallSpeed = 8;
+	jumpTo = 0;
 	spriteNum = 1;
 	isCollidingFeet = 0;
 }
@@ -118,12 +119,20 @@ float Player::getSpeed() {
 	return speed;
 }
 
-void Player::setCollisionOnFeet(int isCollidingFeet) {
+void Player::setCollidingFeet(bool isCollidingFeet) {
 	this->isCollidingFeet = isCollidingFeet;
 }
 
-int Player::getCollisionOnFeet() {
+bool Player::getCollidingFeet() {
 	return isCollidingFeet;
+}
+
+void Player::setCollidingHead(bool isCollidingHead) {
+	this->isCollidingHead = isCollidingHead;
+}
+
+bool Player::getCollidingHead() {
+	return isCollidingHead;
 }
 
 void Player::setFalling(bool isFalling) {
@@ -172,6 +181,17 @@ void Player::setMovement() {
 
 	}
 
+	if (isJumping == true) {
+		if (y > jumpTo) {
+			y -= jumpSpeed;
+		}
+
+		if (y <= jumpTo || isCollidingHead == true) {
+			isJumping = false;
+			isFalling = true;
+		}
+	}
+
 	if (sf::Keyboard::isKeyPressed(leftKeyPressed)) {
 		x = x - speed;
 		setSprite("left");
@@ -181,5 +201,11 @@ void Player::setMovement() {
 		x = x + speed;
 		setSprite("right");
 		direction = "right";
+	}
+	if (sf::Keyboard::isKeyPressed(jumpKeyPressed)) {
+		if (isJumping == false && isFalling == false) {
+			jumpTo = y - (48 * 4);
+			isJumping = true;
+		}
 	}
 }
