@@ -39,7 +39,7 @@ Player::Player(int player) {
 
 void Player::initHitbox() {
 	hitbox = sf::RectangleShape(sf::Vector2f(100.f, 100.f));
-	hitbox.setScale(0.5f, 0.5f);
+	hitbox.setScale(0.48f, 0.48f);
 	hitbox.setPosition(x, y);
 	hitbox.setTexture(&idleSprite);
 }
@@ -171,11 +171,11 @@ void Player::setMovement() {
 
 	if (isFalling == true || isJumping == false) {
 		
-		if (isCollidingFeet == 0) {
+		if (isCollidingFeet == false) {
 			y += fallSpeed;
 			isFalling = true;
 		}
-		else if (isCollidingFeet == 1) {
+		else if (isCollidingFeet == true) {
 			isFalling = false;
 		}
 
@@ -192,15 +192,19 @@ void Player::setMovement() {
 		}
 	}
 
-	if (sf::Keyboard::isKeyPressed(leftKeyPressed)) {
-		x = x - speed;
-		setSprite("left");
+	if (sf::Keyboard::isKeyPressed(leftKeyPressed) && !sf::Keyboard::isKeyPressed(rightKeyPressed)) {
 		direction = "left";
+		setSprite("left");
+		if (isColliding == false) {
+			x = x - speed;
+		}
 	}
-	if (sf::Keyboard::isKeyPressed(rightKeyPressed)) {
-		x = x + speed;
-		setSprite("right");
+	if (sf::Keyboard::isKeyPressed(rightKeyPressed) && !sf::Keyboard::isKeyPressed(leftKeyPressed)) {
 		direction = "right";
+		setSprite("right");
+		if (isColliding == false) {
+			x = x + speed;
+		}
 	}
 	if (sf::Keyboard::isKeyPressed(jumpKeyPressed)) {
 		if (isJumping == false && isFalling == false) {
