@@ -32,7 +32,7 @@ Player::Player(int player) {
 	jumpSpeed = 8;
 	fallSpeed = 8;
 	spriteNum = 1;
-	collisionOnFeet = false;
+	isCollidingFeet = 0;
 }
 
 
@@ -118,12 +118,12 @@ float Player::getSpeed() {
 	return speed;
 }
 
-void Player::setCollisionOnFeet(bool collisonOnFeet) {
-	this->collisionOnFeet = collisionOnFeet;
+void Player::setCollisionOnFeet(int isCollidingFeet) {
+	this->isCollidingFeet = isCollidingFeet;
 }
 
-bool Player::getCollisionOnFeet() {
-	return collisionOnFeet;
+int Player::getCollisionOnFeet() {
+	return isCollidingFeet;
 }
 
 void Player::setFalling(bool isFalling) {
@@ -159,13 +159,14 @@ string Player::getDirection() {
 }
 
 void Player::setMovement() {
+
 	if (isFalling == true || isJumping == false) {
 		
-		if (collisionOnFeet == false) {
+		if (isCollidingFeet == 0) {
 			y += fallSpeed;
 			isFalling = true;
 		}
-		else {
+		else if (isCollidingFeet == 1) {
 			isFalling = false;
 		}
 

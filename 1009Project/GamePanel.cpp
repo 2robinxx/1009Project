@@ -34,8 +34,8 @@ void GamePanel::pollEvents() {
 
 void GamePanel::update() {
 	pollEvents();
-	collisionChecker.checkTile(player1);
-	collisionChecker.checkTile(player2);
+	collisionChecker.checkTile(&player1);
+	collisionChecker.checkTile(&player2);
 	player1.setMovement();
 	player2.setMovement();
 	player1.setPosition();

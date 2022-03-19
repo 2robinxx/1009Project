@@ -13,7 +13,8 @@ private:
 
 	float x, y;
 	int spriteCounter, spriteNum, speed, fallSpeed, jumpSpeed;
-	bool collisionOnFeet, isFalling, isJumping, isColliding;
+	bool isFalling, isJumping, isColliding;
+	int isCollidingFeet;
 	string direction;
 
 	sf::Keyboard::Key leftKeyPressed, rightKeyPressed, jumpKeyPressed;
@@ -32,8 +33,8 @@ public:
 	void setY(float);
 	float getY();
 	float getSpeed();
-	void setCollisionOnFeet(bool);
-	bool getCollisionOnFeet();
+	void setCollisionOnFeet(int);
+	int getCollisionOnFeet();
 	void setFalling(bool);
 	bool getFalling();
 	void setJumping(bool);

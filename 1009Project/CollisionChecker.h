@@ -14,7 +14,7 @@ public:
 
 	CollisionChecker(TileManager*);
 
-	void checkTile(Player);
+	void checkTile(Player*);
 };
 
 #endif
