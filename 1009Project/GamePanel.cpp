@@ -19,6 +19,9 @@ void GamePanel::initVariables() {
 void GamePanel::initWindow() {
 	videoMode.height = 960;
 	videoMode.width = 768;
+	
+	//Setting the view for the game
+	view.setSize(960.f, 768.f);
 
 	window = new sf::RenderWindow(videoMode, "Dino Jump", sf::Style::Close | sf::Style::Titlebar);
 
@@ -47,15 +50,32 @@ void GamePanel::update() {
 
 	bat.setMovement();
 	bat.setPosition();
+	
+	//Setting camera movement to follow player that is highest in the screen
+	if (player1.getY() > player2.getY()) {
+
+		view.setCenter(window->getSize().x / 2.f, player2.getY());
+
+	}
+	else {
+		view.setCenter(window->getSize().x / 2.f, player1.getY());
+
+	}
 }
 
 void GamePanel::render() {
 	window->clear();
+	
+	window->setView(view);
+
+	
 	renderMap();
 	window->draw(player1.getSprite());
 	window->draw(player2.getSprite());
 	window->draw(bat.getSprite());
 	window->display();
+	
+	window->setView(window->getDefaultView());
 }
 
 void GamePanel::renderMap() {
