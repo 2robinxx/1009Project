@@ -30,6 +30,7 @@ private:
 	sf::RenderWindow* window;
 	sf::VideoMode videoMode;
 	sf::Event ev;
+	sf::View view;
 
 	//Objects
 	Player player1;
