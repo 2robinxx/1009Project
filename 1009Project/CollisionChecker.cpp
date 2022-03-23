@@ -23,6 +23,12 @@ void CollisionChecker::checkTileCollision(Player* player) {
 	else {
 		player->setCollidingFeet(false);
 	}
+	if (tileManager->tiles[bottomRow][leftCol]->getSliding() == true || tileManager->tiles[bottomRow][rightCol]->getSliding() == true) {
+		player->setSliding(true);
+	}
+	else {
+		player->setSliding(false);
+	}
 
 	if (player->getJumping() == true) {
 		topRow = (player->getY() - player->getSpeed()) / 48;

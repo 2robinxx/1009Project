@@ -1,7 +1,7 @@
 #include "GamePanel.h"
 
 //Constructor/Destructor
-GamePanel::GamePanel() : player1(1), player2(2), tileManager(), collisionChecker(&tileManager){
+GamePanel::GamePanel() : player1(1), player2(2), bat(48.f, 48.f), tileManager("Sprites/maps/map01.txt"), collisionChecker(&tileManager){
 	initVariables();
 	initWindow();
 }
@@ -38,10 +38,15 @@ void GamePanel::update() {
 	pollEvents();
 	collisionChecker.checkTileCollision(&player1);
 	collisionChecker.checkTileCollision(&player2);
+
 	player1.setMovement();
 	player2.setMovement();
+
 	player1.setPosition();
 	player2.setPosition();
+
+	bat.setMovement();
+	bat.setPosition();
 }
 
 void GamePanel::render() {
@@ -49,6 +54,7 @@ void GamePanel::render() {
 	renderMap();
 	window->draw(player1.getSprite());
 	window->draw(player2.getSprite());
+	window->draw(bat.getSprite());
 	window->display();
 }
 

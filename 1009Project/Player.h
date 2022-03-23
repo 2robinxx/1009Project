@@ -1,19 +1,15 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include <iostream>
+#include "Entity.h"
 
 using namespace std;
 
 //Object for player 1 and 2.
-class Player {
+class Player : public Entity {
 private:
-	sf::Texture idleSprite, leftSprite1, leftSprite2, rightSprite1, rightSprite2;
-	sf::RectangleShape sprite;
-
-	float x, y;
-	int spriteCounter, spriteNum, speed, fallSpeed, jumpSpeed, jumpTo;
-	bool isFalling, isJumping, isColliding, isCollidingFeet, isCollidingHead;
-	string direction;
+	int jumpTo;
+	int slideLeftTimer = 0, slideRightTimer = 0;
+	bool isFalling, isJumping, isColliding, isCollidingFeet, isCollidingHead, isSliding;
 
 	sf::Keyboard::Key leftKeyPressed, rightKeyPressed, jumpKeyPressed;
 
@@ -24,18 +20,10 @@ public:
 
 	//Functions
 	void initSprite(int);
-	void initHitbox();
 	void setMovement();
+	void doSlide();
 
 	//Interfaces
-	sf::RectangleShape getSprite();
-	void setPosition();
-	void setSprite(string);
-	void setX(float);
-	float getX();
-	void setY(float);
-	float getY();
-	float getSpeed();
 	void setCollidingFeet(bool);
 	bool getCollidingFeet();
 	void setCollidingHead(bool);
@@ -46,6 +34,8 @@ public:
 	bool getJumping();
 	void setColliding(bool);
 	bool getColliding();
+	void setSliding(bool);
+	bool getSliding();
 	void setDirection(string);
 	string getDirection();
 };

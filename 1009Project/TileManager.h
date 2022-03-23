@@ -25,6 +25,7 @@ public:
 
 	//Constructor/Destructor
 	TileManager();
+	TileManager(string);
 	~TileManager();
 
 	//Functions

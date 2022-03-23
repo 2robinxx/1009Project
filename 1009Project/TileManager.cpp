@@ -6,6 +6,11 @@ TileManager::TileManager(){
 	setUpTiles();
 }
 
+TileManager::TileManager(string map) {
+	readMapFromFile(map);
+	setUpTiles();
+}
+
 TileManager::~TileManager() {
 	cout << "TileManager destroyed." << endl;
 }

@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "TileManager.h"
 #include "CollisionChecker.h"
+#include "Bat.h"
 #include <iostream>
 
 #ifndef GRID_HEIGHT
@@ -11,6 +12,14 @@
 
 #ifndef GRID_WIDTH
 	#define GRID_WIDTH 16
+#endif
+
+#ifndef WORLD_HEIGHT
+	#define WORLD_HEIGHT 2400
+#endif
+
+#ifndef WORLD_WIDTH
+	#define WORLD_WIDTH 768
 #endif
 
 using namespace std;
@@ -25,6 +34,7 @@ private:
 	//Objects
 	Player player1;
 	Player player2;
+	Bat bat;
 
 	//Functions
 	void initVariables();
