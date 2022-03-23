@@ -26,7 +26,6 @@ Player::Player(int player) {
 	speed = 4;
 	verticalSpeed = 8;
 	jumpTo = 0;
-	spriteNum = 1;
 	isCollidingFeet = false;
 	initHitbox();
 }

@@ -21,7 +21,7 @@ public:
 	~Tile();
 
 	//Interfaces
-	bool setUpSprite(string);
+	void setUpSprite(string);
 	bool getCollision();
 	bool getSliding();
 	void setPosition(float, float);

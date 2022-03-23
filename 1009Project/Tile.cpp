@@ -20,12 +20,11 @@ Tile::~Tile() {
 }
 
 //Interfaces
-bool Tile::setUpSprite(string path) {
+void Tile::setUpSprite(string path) {
 	texture.loadFromFile(path);
 	texture.setSmooth(true);
 	sprite = sf::RectangleShape(sf::Vector2f(48.f, 48.f));
 	sprite.setTexture(&texture);
-	return true;
 }
 
 bool Tile::getCollision() {

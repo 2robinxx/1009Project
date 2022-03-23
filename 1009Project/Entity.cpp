@@ -1,6 +1,21 @@
 #include "Entity.h"
 
 // Constructors / Destructors
+Entity::Entity() {
+	speed = 4;
+	verticalSpeed = 8;
+	x = 0;
+	y = 0;
+	width = 48.f;
+	height = 48.f;
+	spriteNum = 1;
+	spriteCounter = 0;
+	direction = "left";
+}
+
+Entity::~Entity() {
+	cout << "Entity destroyed." << endl;
+}
 
 // Functions
 void Entity::initHitbox() {

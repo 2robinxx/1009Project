@@ -8,8 +8,6 @@ Bat::Bat(float width, float height) {
 	y = 0;
 	speed = 4;
 	verticalSpeed = 2;
-	direction = "right";
-	spriteNum = 1;
 	initSprite();
 	initHitbox();
 }
@@ -21,8 +19,6 @@ Bat::Bat(float width, float height, float x, float y) {
 	this->y = y;
 	speed = 4;
 	verticalSpeed = 2;
-	direction = "right";
-	spriteNum = 1;
 	initSprite();
 	initHitbox();
 }
@@ -36,14 +32,14 @@ void Bat::setMovement() {
 	if (x <= 0) {
 		direction = "right";
 	}
-	else if (x >= WORLD_WIDTH) {
+	else if (x >= (WORLD_WIDTH - 48)) {
 		direction = "left";
 	}
 
 	if (y <= 0) {
 		verticalDirection = "down";
 	}
-	else if (y >= WORLD_HEIGHT) {
+	else if (y >= (WORLD_HEIGHT - 48)) {
 		verticalDirection = "up";
 	}
 

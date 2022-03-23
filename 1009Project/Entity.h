@@ -31,7 +31,8 @@ protected:
 	string direction;
 public:
 	//Constructor/Destructor
-
+	Entity();
+	~Entity();
 
 	//Functions
 	void initHitbox();
