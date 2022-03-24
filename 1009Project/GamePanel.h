@@ -64,6 +64,7 @@ public:
 	void renderMap();
 
 	void spawnBoots();
+	void objectCollision();
 
 	//Interfaces
 	const bool getWindowIsOpen();

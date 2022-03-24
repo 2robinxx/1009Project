@@ -4,8 +4,8 @@
 Player::Player(int player) {
 	if (player == 1) {
 		initSprite(1);
-		x = 300.f;
-		y = 100.f;
+		x = 60.f;
+		y = 600.f;
 		leftKeyPressed = sf::Keyboard::Key::A;
 		rightKeyPressed = sf::Keyboard::Key::D;
 		jumpKeyPressed = sf::Keyboard::Key::W;
@@ -13,15 +13,15 @@ Player::Player(int player) {
 	}
 	else if (player == 2) {
 		initSprite(2);
-		x = 400.f;
-		y = 100.f;
+		x = 500.f;
+		y = 600.f;
 		leftKeyPressed = sf::Keyboard::Key::J;
 		rightKeyPressed = sf::Keyboard::Key::L;
 		jumpKeyPressed = sf::Keyboard::Key::I;
 		direction = "left";
 	}
 
-	width = 48.f;
+	width = 58.f;
 	height = 48.f;
 	speed = 4;
 	verticalSpeed = 8;
@@ -183,4 +183,8 @@ void Player::setDirection(string direction) {
 
 string Player::getDirection() {
 	return direction;
+}
+
+void Player::setSpeed(int s) {
+	this->speed += s;
 }

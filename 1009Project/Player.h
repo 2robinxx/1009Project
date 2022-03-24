@@ -23,6 +23,8 @@ public:
 	void setMovement();
 	void doSlide();
 
+	void setSpeed(int);
+
 	//Interfaces
 	void setCollidingFeet(bool);
 	bool getCollidingFeet();
@@ -38,4 +40,5 @@ public:
 	bool getSliding();
 	void setDirection(string);
 	string getDirection();
+
 };

@@ -11,10 +11,11 @@ private:
 	sf::CircleShape sprite;
 
 	
-
 public:
 	Boots(const sf::RenderWindow& window);
 	virtual ~Boots();
+
+	const sf::CircleShape getBoots() const;
 
 
 	//Function

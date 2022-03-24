@@ -56,6 +56,7 @@ void GamePanel::update() {
 	bat.setPosition();
 
 	this->spawnBoots();
+	this->objectCollision();
 	
 	//Setting camera movement to follow player that is highest in the screen
 	if (player1.getY() > player2.getY()) {
@@ -80,10 +81,14 @@ void GamePanel::render() {
 	window->draw(player2.getSprite());
 	window->draw(bat.getSprite());
 
+
 	for (auto i : this->boots)
 	{
+		
 		i.render(*window);
+		
 	}
+	
 
 	window->display();
 
@@ -115,8 +120,31 @@ void GamePanel::spawnBoots()
 			this->boots.push_back(Boots(*this->window));
 			this->spawnTimer = 0.f;
 		}
-	
 	}
+}
+
+void GamePanel::objectCollision()
+{
+	//Check collision
+	for (size_t i = 0; i < this->boots.size(); i++)
+	{
+		if (this->player1.getSprite().getGlobalBounds().intersects(this->boots[i].getBoots().getGlobalBounds()))
+		{
+			this->boots.erase(this->boots.begin() + i);
+			this->player1.setSpeed(2);
+			cout << "Player1 Speed boost" << this->player1.getSpeed() << endl;
+			
+		}
+		else if (this->player2.getSprite().getGlobalBounds().intersects(this->boots[i].getBoots().getGlobalBounds()))
+		{
+			this->boots.erase(this->boots.begin() + i);
+			this->player2.setSpeed(2);
+			cout << "Player2 Speed boost" << this->player2.getSpeed() << endl;
+
+		}
+		
+	}
+
 }
 
 //Interfaces
