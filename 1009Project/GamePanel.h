@@ -4,7 +4,9 @@
 #include "TileManager.h"
 #include "CollisionChecker.h"
 #include "Bat.h"
+#include "Boots.h"
 #include <iostream>
+#include <vector>
 
 #ifndef GRID_HEIGHT
 	#define GRID_HEIGHT 50
@@ -37,6 +39,13 @@ private:
 	Player player2;
 	Bat bat;
 
+
+	//container for boots
+	std::vector<Boots> boots;
+	float spawnTimerMax;
+	float spawnTimer;
+	int maxBoots;
+
 	//Functions
 	void initVariables();
 	void initWindow();
@@ -53,6 +62,8 @@ public:
 	void update();
 	void render();
 	void renderMap();
+
+	void spawnBoots();
 
 	//Interfaces
 	const bool getWindowIsOpen();

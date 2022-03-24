@@ -6,6 +6,9 @@ int main()
 {
     GamePanel gamePanel;
 
+    //Inititalize random seed
+    srand(static_cast<unsigned>(time(0)));
+
     while (gamePanel.getWindowIsOpen())
     {
         gamePanel.update();

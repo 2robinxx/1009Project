@@ -14,6 +14,10 @@ GamePanel::~GamePanel() {
 //Functions
 void GamePanel::initVariables() {
 	window = nullptr;
+
+	this->spawnTimerMax = 10.f;
+	this->spawnTimer = this->spawnTimerMax;
+	this->maxBoots = 3;
 }
 
 void GamePanel::initWindow() {
@@ -50,6 +54,8 @@ void GamePanel::update() {
 
 	bat.setMovement();
 	bat.setPosition();
+
+	this->spawnBoots();
 	
 	//Setting camera movement to follow player that is highest in the screen
 	if (player1.getY() > player2.getY()) {
@@ -73,7 +79,14 @@ void GamePanel::render() {
 	window->draw(player1.getSprite());
 	window->draw(player2.getSprite());
 	window->draw(bat.getSprite());
+
+	for (auto i : this->boots)
+	{
+		i.render(*window);
+	}
+
 	window->display();
+
 	
 	window->setView(window->getDefaultView());
 }
@@ -85,6 +98,24 @@ void GamePanel::renderMap() {
 			window->draw(tileManager.tiles[i][j]->getSprite());
 		}
 
+	}
+}
+
+void GamePanel::spawnBoots()
+{
+	//Timer
+	if (this->spawnTimer < this->spawnTimerMax)
+	{
+		this->spawnTimer += 1.f;
+	}
+	else
+	{
+		if (this->boots.size() < this->maxBoots)
+		{
+			this->boots.push_back(Boots(*this->window));
+			this->spawnTimer = 0.f;
+		}
+	
 	}
 }
 

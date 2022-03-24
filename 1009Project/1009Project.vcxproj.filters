@@ -39,6 +39,9 @@
     <ClCompile Include="Bat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Boots.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tile.h">
@@ -60,6 +63,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Bat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Boots.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
