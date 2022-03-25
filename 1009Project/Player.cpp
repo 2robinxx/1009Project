@@ -225,3 +225,9 @@ void Player::playJumpSound() {
 	sound.setBuffer("Sprites/sound/coin.wav");
 	sound.playSound();
 }
+
+void Player::deductHealth() {
+
+	health -= 1;
+
+}
