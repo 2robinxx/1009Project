@@ -42,6 +42,7 @@ public:
 	void setDirection(string);
 	string getDirection();
 	int getHealth();
+	void deductHealth();
 
 	void playJumpSound();
 };
