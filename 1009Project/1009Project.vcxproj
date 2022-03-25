@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bat.cpp" />
+    <ClCompile Include="Boots.cpp" />
     <ClCompile Include="CollisionChecker.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GamePanel.cpp" />
@@ -158,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bat.h" />
+    <ClInclude Include="Boots.h" />
     <ClInclude Include="CollisionChecker.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="GamePanel.h" />
