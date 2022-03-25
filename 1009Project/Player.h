@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Entity.h"
+#include "Sound.h"
 
 using namespace std;
 
@@ -10,11 +11,13 @@ private:
 	int jumpTo;
 	int slideLeftTimer = 0, slideRightTimer = 0;
 	bool isFalling, isJumping, isColliding, isCollidingFeet, isCollidingHead, isSliding;
+	int health = 3;
 
 	sf::Keyboard::Key leftKeyPressed, rightKeyPressed, jumpKeyPressed;
 
 public:
 	//Constructor/Destructor
+	Sound sound;
 	Player(int);
 	~Player();
 
@@ -38,4 +41,7 @@ public:
 	bool getSliding();
 	void setDirection(string);
 	string getDirection();
+	int getHealth();
+
+	void playJumpSound();
 };

@@ -6,8 +6,13 @@ int main()
 {
     GamePanel gamePanel;
 
+
+
+
     while (gamePanel.getWindowIsOpen())
     {
+        //playSound
+
         gamePanel.update();
 
         gamePanel.render();

@@ -96,8 +96,12 @@ void Player::setMovement() {
 	}
 	if (sf::Keyboard::isKeyPressed(jumpKeyPressed)) {
 		if (isJumping == false && isFalling == false) {
+
 			jumpTo = y - (48 * 4);
 			isJumping = true;
+
+			//When jump, play sound
+			playJumpSound();
 		}
 	}
 	if (isSliding == true) {
@@ -183,4 +187,15 @@ void Player::setDirection(string direction) {
 
 string Player::getDirection() {
 	return direction;
+}
+
+int Player::getHealth() {
+	return health;
+
+}
+
+//Play Sound
+void Player::playJumpSound() {
+	sound.setBuffer("Sprites/sound/coin.wav");
+	sound.playSound();
 }

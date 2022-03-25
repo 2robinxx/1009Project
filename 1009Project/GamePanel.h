@@ -4,6 +4,8 @@
 #include "TileManager.h"
 #include "CollisionChecker.h"
 #include "Bat.h"
+#include "Sound.h"
+#include "Health.h"
 #include <iostream>
 
 #ifndef GRID_HEIGHT
@@ -30,7 +32,12 @@ private:
 	sf::RenderWindow* window;
 	sf::VideoMode videoMode;
 	sf::Event ev;
-	sf::View view;
+	sf::View mainMapView;
+	sf::View UI;
+	Sound sound;
+	Health health;
+	
+
 
 	//Objects
 	Player player1;
@@ -56,4 +63,8 @@ public:
 
 	//Interfaces
 	const bool getWindowIsOpen();
+
+	void playBackgroundMusic();
+	void drawHearts();
+
 };
