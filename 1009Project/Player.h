@@ -26,6 +26,11 @@ public:
 	void setMovement();
 	void doSlide();
 
+	void setSpeed(int);
+	void setDamage(int);
+	void gainHealth(int);
+
+
 	//Interfaces
 	void setCollidingFeet(bool);
 	bool getCollidingFeet();

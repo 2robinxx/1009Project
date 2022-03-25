@@ -6,6 +6,9 @@ GamePanel::GamePanel() : player1(1), player2(2), bat(48.f, 48.f), tileManager("S
 	initVariables();
 	initWindow();
 
+	initFont();
+	initText();
+
 	//Play background music
 	playBackgroundMusic();
 
@@ -19,6 +22,11 @@ GamePanel::~GamePanel() {
 //Functions
 void GamePanel::initVariables() {
 	window = nullptr;
+	this->spawnTimerMax = 10.f;
+	this->spawnTimer = this->spawnTimerMax;
+	this->maxObjects = 3;
+
+
 }
 
 void GamePanel::initWindow() {
@@ -33,6 +41,23 @@ void GamePanel::initWindow() {
 
 	window->setFramerateLimit(60);
 
+}
+
+void GamePanel::initFont()
+{
+	if(!this->font.loadFromFile("Fonts/ChrustyRock-ORLA.ttf"))
+	{
+		cout<<"ERROR LOADING FONT"<<endl;
+	}
+}
+
+void GamePanel::initText()
+{
+	this->guiSpeedText.setFont(this->font);
+	this->guiSpeedText.setFillColor(sf::Color::White);
+	this->guiSpeedText.setCharacterSize(30.f);
+
+	
 }
 
 void GamePanel::pollEvents() {
@@ -57,6 +82,10 @@ void GamePanel::update() {
 
 	bat.setMovement();
 	bat.setPosition();
+
+	this->spawnObj();
+	this->objCollision();
+	this->updateSpeedGUI();
 
 
 	
@@ -85,9 +114,16 @@ void GamePanel::render() {
 	window->draw(player2.getSprite());
 	window->draw(bat.getSprite());
 
+	for (auto i : this->obj)
+	{
+		i.render(*window);
+	}
+
 	//Drawing on UI view
 	window->setView(UI);
 	drawHearts();
+
+	this->drawSpeedGUI(window);
 
 	window->display();
 
@@ -104,6 +140,89 @@ void GamePanel::renderMap() {
 		}
 
 	}
+}
+
+void GamePanel::spawnObj()
+{
+	//Timer
+	if (this->spawnTimer < spawnTimerMax)
+	{
+		this->spawnTimer += 1.f;
+	}
+	else
+	{
+		if (this->obj.size() < this->maxObjects)
+		{
+			this->obj.push_back(Object(*this->window, rand()% objectType::NOFT));
+			this->spawnTimer = 0.f;
+		}
+		
+	}
+}
+
+void GamePanel::objCollision()
+{
+	//Check the Collsion
+	for (size_t i= 0; i < this->obj.size(); i++)
+	{
+		if (this->player1.getSprite().getGlobalBounds().intersects(this->obj[i].getObject().getGlobalBounds()))
+		{
+			switch (this->obj[i].getType())
+			{
+				case objectType::DEFAULT:
+					//iNCREASE SPEED
+					this->player1.setSpeed(2);
+					cout << "Player 1 speed is " << player1.getSpeed() << endl;
+					break;
+				case objectType::DAMAGING:
+					//DAMAGE HEALTH
+					this->player2.setDamage(1);
+					cout << "Player 1 Damage Player 2 " <<  endl;
+					break;
+				case objectType::HEALING:
+					//HEAL
+					this->player1.gainHealth(1);
+					cout << "Player 1 Health is " << player1.getHealth() << endl;
+					break;
+			}
+		
+			//REMOVE OBJECT
+			this->obj.erase(this->obj.begin() + i);
+		
+			
+		
+		}
+		else if (this->player2.getSprite().getGlobalBounds().intersects(this->obj[i].getObject().getGlobalBounds()))
+		{
+			switch (this->obj[i].getType())
+			{
+			case objectType::DEFAULT:
+				//iNCREASE SPEED
+				this->player2.setSpeed(2);
+				cout << "Player 2 speed is " << player2.getSpeed() << endl;
+				break;
+			case objectType::DAMAGING:
+				//DAMAGE HEALTH
+				this->player1.setDamage(1);
+				cout << "Player 2 Damage Player 1 " << endl;
+				break;
+			case objectType::HEALING:
+				//HEAL
+				this->player2.gainHealth(1);
+				cout << "Player 2 Health is " << player2.getHealth() << endl;
+				break;
+			}
+
+			//REMOVE OBJECT
+			this->obj.erase(this->obj.begin() + i);
+			
+		}
+
+	}
+
+	
+	
+	
 }
 
 //Interfaces
@@ -131,5 +250,24 @@ void GamePanel::drawHearts() {
 		subsetHeartP2 += 20;
 	}
 
+
+}
+
+void GamePanel::drawSpeedGUI(sf::RenderTarget* target)
+{
+	target->draw(this->guiSpeedText);
+}
+
+void GamePanel::updateSpeedGUI()
+{
+	int p1speed;
+	int p2speed;
+
+	p1speed = player1.getSpeed();
+	p2speed = player2.getSpeed();
+
+	stringstream ss;
+	ss << "Player 1 speed: " << p1speed << "\t\t\t\t\t\t\t\t" << "Player 2 speed:  " << p2speed;
+	this->guiSpeedText.setString(ss.str());
 
 }

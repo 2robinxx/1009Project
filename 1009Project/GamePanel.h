@@ -6,7 +6,9 @@
 #include "Bat.h"
 #include "Sound.h"
 #include "Health.h"
+#include "Object.h"
 #include <iostream>
+#include <vector>
 
 #ifndef GRID_HEIGHT
 	#define GRID_HEIGHT 50
@@ -44,9 +46,24 @@ private:
 	Player player2;
 	Bat bat;
 
+	vector<Object> obj;
+	float spawnTimerMax;
+	int spawnTimer;
+	int maxObjects;
+
+	sf::Font font;
+	sf::Text guiSpeedText;
+
+
+
 	//Functions
 	void initVariables();
 	void initWindow();
+
+	void initFont();
+	void initText();
+
+
 public:
 	TileManager tileManager;
 	CollisionChecker collisionChecker;
@@ -61,10 +78,16 @@ public:
 	void render();
 	void renderMap();
 
+	void spawnObj();
+	void objCollision();
+
 	//Interfaces
 	const bool getWindowIsOpen();
 
 	void playBackgroundMusic();
 	void drawHearts();
+
+	void drawSpeedGUI(sf::RenderTarget* target);
+	void updateSpeedGUI();
 
 };
