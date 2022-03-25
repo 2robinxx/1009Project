@@ -4,6 +4,8 @@
 GamePanel::GamePanel() : player1(1), player2(2), bat(48.f, 48.f), tileManager("Sprites/maps/map01.txt"), collisionChecker(&tileManager){
 	initVariables();
 	initWindow();
+	initFont();
+	initText();
 }
 
 GamePanel::~GamePanel() {
@@ -30,6 +32,8 @@ void GamePanel::initWindow() {
 	window = new sf::RenderWindow(videoMode, "Dino Jump", sf::Style::Close | sf::Style::Titlebar);
 
 	window->setFramerateLimit(60);
+
+
 }
 
 void GamePanel::pollEvents() {
@@ -57,31 +61,46 @@ void GamePanel::update() {
 
 	this->spawnBoots();
 	this->objectCollision();
+	this->updateGUI();
 	
 	//Setting camera movement to follow player that is highest in the screen
 	if (player1.getY() > player2.getY()) {
 
 		view.setCenter(window->getSize().x / 2.f, player2.getY());
 
+
 	}
 	else {
 		view.setCenter(window->getSize().x / 2.f, player1.getY());
-
+	
 	}
 }
+
+void GamePanel::renderGUI(sf::RenderTarget* target)
+{
+
+	target->draw(this->guiText);
+}
+
+void GamePanel::updateGUI()
+{
+	stringstream ss;
+	ss << " Player 1 Speed: " << this->player1.getSpeed() << endl;
+	this->guiText.setString(ss.str());
+}
+
 
 void GamePanel::render() {
 	window->clear();
 	
 	window->setView(view);
 
-	
 	renderMap();
 	window->draw(player1.getSprite());
 	window->draw(player2.getSprite());
 	window->draw(bat.getSprite());
 
-
+	//Render Object
 	for (auto i : this->boots)
 	{
 		
@@ -89,6 +108,8 @@ void GamePanel::render() {
 		
 	}
 	
+	//Reder GUI
+	this->renderGUI(this->window);
 
 	window->display();
 
@@ -146,6 +167,24 @@ void GamePanel::objectCollision()
 	}
 
 }
+
+void GamePanel::initFont()
+{
+	if (!this->font.loadFromFile("Fonts/ChrustyRock-ORLA.ttf"))
+	{
+		cout << "!ERROR INIT FONTS: COULD NOT LOAD" << endl;
+	}
+}
+
+void GamePanel::initText()
+{
+	//GUI Text init
+	this->guiText.setFont(this->font);
+	this->guiText.setFillColor(sf::Color::White);
+	this->guiText.setCharacterSize(24);
+	
+}
+
 
 //Interfaces
 const bool GamePanel::getWindowIsOpen() {

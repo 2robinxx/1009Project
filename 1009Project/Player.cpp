@@ -188,3 +188,4 @@ string Player::getDirection() {
 void Player::setSpeed(int s) {
 	this->speed += s;
 }
+

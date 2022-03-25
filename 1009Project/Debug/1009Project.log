@@ -1,3 +1,3 @@
-﻿  Player.cpp
-C:\Users\chows\Desktop\1009Project\1009Project\Player.cpp(99,15): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+﻿  GamePanel.cpp
+C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(139,26): warning C4018: '<': signed/unsigned mismatch
   1009Project.vcxproj -> C:\Users\chows\Desktop\1009Project\Debug\1009Project.exe

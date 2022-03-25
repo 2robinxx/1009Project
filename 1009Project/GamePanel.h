@@ -1,4 +1,4 @@
-#pragma once
+ #pragma once
 #include <SFML/Graphics.hpp>
 #include "Player.h"
 #include "TileManager.h"
@@ -34,6 +34,9 @@ private:
 	sf::Event ev;
 	sf::View view;
 
+
+
+
 	//Objects
 	Player player1;
 	Player player2;
@@ -45,6 +48,10 @@ private:
 	float spawnTimerMax;
 	float spawnTimer;
 	int maxBoots;
+
+	//GUI
+	sf::Font font;
+	sf::Text guiText;
 
 	//Functions
 	void initVariables();
@@ -65,6 +72,12 @@ public:
 
 	void spawnBoots();
 	void objectCollision();
+
+	void initFont();
+	void initText();
+	void renderGUI(sf::RenderTarget* target);
+	void updateGUI();
+	
 
 	//Interfaces
 	const bool getWindowIsOpen();

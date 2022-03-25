@@ -25,6 +25,7 @@ public:
 
 	void setSpeed(int);
 
+
 	//Interfaces
 	void setCollidingFeet(bool);
 	bool getCollidingFeet();
