@@ -11,11 +11,15 @@ GamePanel::GamePanel() : player1(1), player2(2), bat(48.f, 48.f), tileManager("S
 
 	//Play background music
 	playBackgroundMusic();
+	
+
 
 }
 
 GamePanel::~GamePanel() {
 	delete window;
+	
+	cout << "This game was played for: " << playtime << endl;
 	cout << "GamePanel destroyed. Game closed" << endl;
 }
 
@@ -86,8 +90,9 @@ void GamePanel::update() {
 	this->spawnObj();
 	this->objCollision();
 	this->updateSpeedGUI();
-
-
+	//setting up how long the user plays
+	this->playtime += (double)1/60;
+	
 	
 	//Setting camera movement to follow player that is highest in the screen
 	if (player1.getY() > player2.getY()) {
@@ -227,6 +232,7 @@ void GamePanel::objCollision()
 
 //Interfaces
 const bool GamePanel::getWindowIsOpen() {
+	
 	return window->isOpen();
 }
 
@@ -252,6 +258,7 @@ void GamePanel::drawHearts() {
 
 
 }
+
 
 void GamePanel::drawSpeedGUI(sf::RenderTarget* target)
 {

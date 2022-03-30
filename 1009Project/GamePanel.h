@@ -50,6 +50,7 @@ private:
 	float spawnTimerMax;
 	int spawnTimer;
 	int maxObjects;
+	double playtime = 0;
 
 	sf::Font font;
 	sf::Text guiSpeedText;

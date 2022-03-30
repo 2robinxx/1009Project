@@ -2,9 +2,11 @@
 #include "Player.h"
 #include "GamePanel.h"
 
+
 int main()
 {
     GamePanel gamePanel;
+    
 
 
     //Initialize random seed
@@ -13,10 +15,12 @@ int main()
     while (gamePanel.getWindowIsOpen())
     {
         //playSound
-
+        
         gamePanel.update();
-
+        
         gamePanel.render();
+        
+        
     }
 
     return 0;
