@@ -82,6 +82,10 @@ public:
 	void spawnObj();
 	void objCollision();
 
+	//checking death and goal
+	int checkGoal();
+	int checkDeath();
+
 	//Interfaces
 	const bool getWindowIsOpen();
 

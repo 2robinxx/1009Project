@@ -92,6 +92,9 @@ void GamePanel::update() {
 	this->updateSpeedGUI();
 	//setting up how long the user plays
 	this->playtime += (double)1/60;
+	//checking if player reached the top or died
+	checkGoal();
+	checkDeath();
 	
 	
 	//Setting camera movement to follow player that is highest in the screen
@@ -277,4 +280,32 @@ void GamePanel::updateSpeedGUI()
 	ss << "Player 1 speed: " << p1speed << "\t\t\t\t\t\t\t\t" << "Player 2 speed:  " << p2speed;
 	this->guiSpeedText.setString(ss.str());
 
+}
+
+int GamePanel::checkGoal() {
+	
+	if (player1.getY() <= 48 * 1) {
+		cout << "Player 1 wins"<< endl;
+		return 1;
+
+	}
+	if (player2.getY() <= 48 * 1) {
+		cout << "Player 2 wins" << endl;
+		return 2;
+	}
+	return 3;
+}
+
+int GamePanel::checkDeath() {
+
+	if (player1.getY() >= this->player2.getY()+(48*18)||player1.getHealth()==0) {
+		cout << "Player 1 died" << endl;
+		return 1;
+
+	}
+	if (player2.getY() >= this->player1.getY() + (48 * 18) || player2.getHealth() == 0) {
+		cout << "Player 2 died" << endl;
+		return 2;
+	}
+	return 3;
 }
