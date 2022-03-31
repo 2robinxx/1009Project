@@ -12,9 +12,9 @@ CollisionChecker::~CollisionChecker() {
 //Functions
 //Check whether the player collide with a tile.
 void CollisionChecker::checkTileCollision(Player* player) {
-	int leftCol = player->getX() / 48;
-	int rightCol = (player->getX() + 48) / 48;
-	int topRow = player->getY() / 48;
+	int leftCol = (player->getX() + 8) / 48;
+	int rightCol = (player->getX() + 48 - 8) / 48;
+	int topRow = (player->getY() + 16) / 48;
 	int bottomRow = (player->getY() + 48) / 48;
 
 	if (tileManager->tiles[bottomRow][leftCol]->getCollision() == true || tileManager->tiles[bottomRow][rightCol]->getCollision() == true) {
@@ -31,7 +31,7 @@ void CollisionChecker::checkTileCollision(Player* player) {
 	}
 
 	if (player->getJumping() == true) {
-		topRow = (player->getY() - player->getSpeed()) / 48;
+		topRow = (player->getY() - player->getSpeed() + 16) / 48;
 		bottomRow = (player->getY() + 48 - player->getSpeed()) / 48;
 
 		if (tileManager->tiles[topRow][leftCol]->getCollision() == true || tileManager->tiles[topRow][rightCol]->getCollision() == true) {
@@ -42,7 +42,7 @@ void CollisionChecker::checkTileCollision(Player* player) {
 		}
 
 		if (player->getDirection() == "left") {
-			leftCol = (player->getX() - player->getSpeed()) / 48;
+			leftCol = (player->getX() - player->getSpeed() + 8) / 48;
 
 			if (tileManager->tiles[topRow][leftCol]->getCollision() == true || tileManager->tiles[bottomRow][leftCol]->getCollision() == true) {
 				player->setColliding(true);
@@ -53,7 +53,7 @@ void CollisionChecker::checkTileCollision(Player* player) {
 		}
 
 		if (player->getDirection() == "right") {
-			rightCol = (player->getX() + 48 + player->getSpeed()) / 48;
+			rightCol = (player->getX() + 48 + player->getSpeed() - 8) / 48;
 
 			if (tileManager->tiles[topRow][rightCol]->getCollision() == true || tileManager->tiles[bottomRow][rightCol]->getCollision() == true) {
 				player->setColliding(true);
@@ -64,9 +64,9 @@ void CollisionChecker::checkTileCollision(Player* player) {
 		}
 	}
 	else if (player->getFalling() == true) {
-		leftCol = (player->getX() - player->getSpeed()) / 48;
-		rightCol = (player->getX() + 48 + player->getSpeed()) / 48;
-		topRow = player->getY() / 48;
+		leftCol = (player->getX() - player->getSpeed() + 8) / 48;
+		rightCol = (player->getX() + 48 + player->getSpeed() - 8) / 48;
+		topRow = (player->getY() + 16) / 48;
 		bottomRow = (player->getY() + 48) / 48;
 
 		if (player->getDirection() == "left") {
@@ -88,9 +88,9 @@ void CollisionChecker::checkTileCollision(Player* player) {
 		}
 	}
 	else {
-		leftCol = (player->getX() - player->getSpeed()) / 48;
-		rightCol = (player->getX() + 48 + player->getSpeed()) / 48;
-		topRow = player->getY() / 48;
+		leftCol = (player->getX() - player->getSpeed() + 8) / 48;
+		rightCol = (player->getX() + 48 + player->getSpeed() - 8) / 48;
+		topRow = (player->getY() + 16) / 48;
 		bottomRow = (player->getY() + 48) / 48 - 1;
 
 		if (player->getDirection() == "left") {
