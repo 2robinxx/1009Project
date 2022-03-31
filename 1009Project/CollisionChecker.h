@@ -17,4 +17,5 @@ public:
 
 	//Functions
 	void checkTileCollision(Player*);
+	void checkMobCollision(Player*, Entity*);
 };

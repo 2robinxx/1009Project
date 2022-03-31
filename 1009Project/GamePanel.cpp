@@ -77,6 +77,8 @@ void GamePanel::update() {
 	pollEvents();
 	collisionChecker.checkTileCollision(&player1);
 	collisionChecker.checkTileCollision(&player2);
+	collisionChecker.checkMobCollision(&player1, &bat);
+	collisionChecker.checkMobCollision(&player2, &bat);
 
 	player1.setMovement();
 	player2.setMovement();
@@ -263,7 +265,7 @@ void GamePanel::drawHearts() {
 }
 
 
-void GamePanel::drawSpeedGUI(sf::RenderTarget* target)
+inline void GamePanel::drawSpeedGUI(sf::RenderTarget* target)
 {
 	target->draw(this->guiSpeedText);
 }
@@ -282,7 +284,7 @@ void GamePanel::updateSpeedGUI()
 
 }
 
-int GamePanel::checkGoal() {
+inline int GamePanel::checkGoal() {
 	
 	if (player1.getY() <= 48 * 1) {
 		cout << "Player 1 wins"<< endl;
@@ -296,7 +298,7 @@ int GamePanel::checkGoal() {
 	return 3;
 }
 
-int GamePanel::checkDeath() {
+inline int GamePanel::checkDeath() {
 
 	if (player1.getY() >= this->player2.getY()+(48*18)||player1.getHealth()==0) {
 		cout << "Player 1 died" << endl;

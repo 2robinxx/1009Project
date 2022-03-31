@@ -10,8 +10,9 @@ class Player : public Entity {
 private:
 	int jumpTo;
 	int slideLeftTimer = 0, slideRightTimer = 0;
-	bool isFalling, isJumping, isColliding, isCollidingFeet, isCollidingHead, isSliding;
+	bool isFalling, isJumping, isColliding, isCollidingFeet, isCollidingHead, isSliding, isImmune;
 	int health = 3;
+	time_t immunityTimer;
 
 	sf::Keyboard::Key leftKeyPressed, rightKeyPressed, jumpKeyPressed;
 
@@ -46,6 +47,9 @@ public:
 	bool getSliding();
 	void setDirection(string);
 	string getDirection();
+	void setImmune();
+	void checkImmune();
+	bool getImmune();
 	int getHealth();
 	void deductHealth();
 

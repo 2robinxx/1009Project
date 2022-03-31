@@ -112,3 +112,12 @@ void CollisionChecker::checkTileCollision(Player* player) {
 		}
 	}
 }
+
+
+void CollisionChecker::checkMobCollision(Player* player, Entity* mob) {
+	player->checkImmune();
+	if (player->getSprite().getGlobalBounds().intersects(mob->getSprite().getGlobalBounds()) && !player->getImmune()) {
+		player->setImmune();
+		player->deductHealth();
+	}
+}

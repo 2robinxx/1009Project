@@ -26,6 +26,7 @@ Player::Player(int player) {
 	speed = 4;
 	verticalSpeed = 8;
 	jumpTo = 0;
+	isImmune = false;
 	isCollidingFeet = false;
 	initHitbox();
 }
@@ -213,6 +214,21 @@ void Player::setDirection(string direction) {
 
 string Player::getDirection() {
 	return direction;
+}
+
+void Player::setImmune() {
+	isImmune = true;
+	immunityTimer = time(NULL) + 1;
+}
+
+void Player::checkImmune() {
+	if (time(NULL) >= immunityTimer) {
+		isImmune = false;
+	}
+}
+
+bool Player::getImmune() {
+	return isImmune;
 }
 
 int Player::getHealth() {
