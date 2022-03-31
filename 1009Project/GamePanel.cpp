@@ -49,7 +49,7 @@ void GamePanel::initWindow() {
 
 void GamePanel::initFont()
 {
-	if(!this->font.loadFromFile("Fonts/ChrustyRock-ORLA.ttf"))
+	if(!this->font.loadFromFile("Fonts/game_sans_serif_7.ttf"))
 	{
 		cout<<"ERROR LOADING FONT"<<endl;
 	}
@@ -277,7 +277,7 @@ void GamePanel::updateSpeedGUI()
 	p2speed = player2.getSpeed();
 
 	stringstream ss;
-	ss << "Player 1 speed: " << p1speed << "\t\t\t\t\t\t\t\t" << "Player 2 speed:  " << p2speed;
+	ss << " Player 1 speed: " << p1speed << "\t\t\t\t\t\t\t\t" << "Player 2 speed:  " << p2speed;
 	this->guiSpeedText.setString(ss.str());
 
 }
