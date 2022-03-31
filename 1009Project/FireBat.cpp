@@ -28,6 +28,7 @@ FireBall::FireBall(float x, float y, string direction) {
 	height = 24.f;
 	this->x = x;
 	this->y = y;
+	this->direction = direction;
 	initSprite();
 	initHitbox();
 }
@@ -93,7 +94,7 @@ void FireBat::setAttack() {
 	if (isIdle && !isRest) {
 		isRest = true;
 		cout << x << " " << y << " ";
-		fireball = new FireBall(x, y, direction);
+		fireball = new FireBall(x, y + 12, direction);
 	}
 }
 

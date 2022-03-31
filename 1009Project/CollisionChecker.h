@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Player.h"
 #include "TileManager.h"
+#include "FireBat.h"
 #include <iostream>
 
 using namespace std;
@@ -18,4 +19,5 @@ public:
 	//Functions
 	void checkTileCollision(Player*);
 	void checkMobCollision(Player&, Entity&);
+	void checkFireCollision(Player*, FireBall*);
 };

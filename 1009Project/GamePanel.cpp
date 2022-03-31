@@ -81,6 +81,13 @@ void GamePanel::update() {
 	collisionChecker.checkMobCollision(player1, bat);
 	collisionChecker.checkMobCollision(player2, bat);
 
+	if (firebat1.getFireball() != NULL) {
+		collisionChecker.checkFireCollision(&player1, firebat1.getFireball());
+	}
+	if (firebat2.getFireball() != NULL) {
+		collisionChecker.checkFireCollision(&player2, firebat2.getFireball());
+	}
+
 	player1.setMovement();
 	player2.setMovement();
 
