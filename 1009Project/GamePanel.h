@@ -7,6 +7,7 @@
 #include "Sound.h"
 #include "Health.h"
 #include "Object.h"
+#include "Menu.h"
 #include "FireBat.h"
 #include <iostream>
 #include <vector>
@@ -39,7 +40,7 @@ private:
 	sf::View UI;
 	Sound sound;
 	Health health;
-	
+	Menu menu;
 
 
 	//Objects
@@ -53,6 +54,7 @@ private:
 	int spawnTimer;
 	int maxObjects;
 	double playtime = 0;
+	string screen;
 
 	sf::Font font;
 	sf::Text guiSpeedText;

@@ -12,8 +12,6 @@ GamePanel::GamePanel() : player1(1), player2(2), bat(48.f, 48.f), firebat1(48.f,
 	//Play background music
 	playBackgroundMusic();
 	
-
-
 }
 
 GamePanel::~GamePanel() {
@@ -29,6 +27,7 @@ void GamePanel::initVariables() {
 	this->spawnTimerMax = 10.f;
 	this->spawnTimer = this->spawnTimerMax;
 	this->maxObjects = 3;
+	this->screen = "menu";
 
 
 }
@@ -75,92 +74,144 @@ void GamePanel::pollEvents() {
 
 void GamePanel::update() {
 	pollEvents();
-	collisionChecker.checkTileCollision(&player1);
-	collisionChecker.checkTileCollision(&player2);
 
-	collisionChecker.checkMobCollision(player1, bat);
-	collisionChecker.checkMobCollision(player2, bat);
+	if (screen == "menu") {
 
-	if (firebat1.getFireball() != NULL) {
-		collisionChecker.checkFireCollision(&player1, firebat1.getFireball());
+		menu.toggleMenu();
+
+		// Play option
+		if (menu.selectedItemIndex == 0 && menu.enterPressKey == 1) {
+
+			screen = "play";
+
+		}
+		//Quit option
+		else if (menu.selectedItemIndex == 1 && menu.enterPressKey == 1) {
+
+			//close window gracefully
+			window->close();
+
+		}
 	}
-	if (firebat2.getFireball() != NULL) {
-		collisionChecker.checkFireCollision(&player2, firebat2.getFireball());
+	else if (screen == "play") {
+
+
+		collisionChecker.checkTileCollision(&player1);
+		collisionChecker.checkTileCollision(&player2);
+
+		collisionChecker.checkMobCollision(player1, bat);
+		collisionChecker.checkMobCollision(player2, bat);
+
+		if (firebat1.getFireball() != NULL) {
+			collisionChecker.checkFireCollision(&player1, firebat1.getFireball());
+		}
+		if (firebat2.getFireball() != NULL) {
+			collisionChecker.checkFireCollision(&player2, firebat2.getFireball());
+		}
+
+		player1.setMovement();
+		player2.setMovement();
+
+		player1.setPosition();
+		player2.setPosition();
+
+		bat.setMovement();
+		bat.setPosition();
+
+		firebat1.setMovement();
+		firebat1.setPosition();
+
+		firebat2.setMovement();
+		firebat2.setPosition();
+
+		this->spawnObj();
+		this->objCollision();
+		this->updateSpeedGUI();
+		//setting up how long the user plays
+		this->playtime += (double)1 / 60;
+		//checking if player reached the top or died
+		checkGoal();
+		checkDeath();
+
+		if (checkGoal() == 1 || checkGoal() == 2 || checkDeath() == 1 || checkDeath() == 2) {
+
+			//what to show when checkgoal/checkdeath criteria is met?
+
+
+		}
+
+
+		//Setting camera movement to follow player that is highest in the screen
+		if (player1.getY() > player2.getY()) {
+
+			mainMapView.setCenter(window->getSize().x / 2.f, player2.getY());
+
+		}
+		else {
+			mainMapView.setCenter(window->getSize().x / 2.f, player1.getY());
+
+		}
+
 	}
 
-	player1.setMovement();
-	player2.setMovement();
 
-	player1.setPosition();
-	player2.setPosition();
 
-	bat.setMovement();
-	bat.setPosition();
 
-	firebat1.setMovement();
-	firebat1.setPosition();
-
-	firebat2.setMovement();
-	firebat2.setPosition();
-
-	this->spawnObj();
-	this->objCollision();
-	this->updateSpeedGUI();
-	//setting up how long the user plays
-	this->playtime += (double)1/60;
-	//checking if player reached the top or died
-	checkGoal();
-	checkDeath();
 	
-	
-	//Setting camera movement to follow player that is highest in the screen
-	if (player1.getY() > player2.getY()) {
-
-		mainMapView.setCenter(window->getSize().x / 2.f, player2.getY());
-
-	}
-	else {
-		mainMapView.setCenter(window->getSize().x / 2.f, player1.getY());
-
-	}
 
 
 }
 
 void GamePanel::render() {
-	window->clear();
 
-	//Drawing on main Map View
-	window->setView(mainMapView);
+	if (this->screen == "menu") {
 
-	renderMap();
-	window->draw(player1.getSprite());
-	window->draw(player2.getSprite());
-	window->draw(bat.getSprite());
-	window->draw(firebat1.getSprite());
-	window->draw(firebat2.getSprite());
+		window->clear();
+		menu.draw(*window, window->getSize().x, window->getSize().y);
+		window->display();
 
-	if (firebat1.getFireball() != NULL) {
-		window->draw(firebat1.getFireball()->getSprite());
+
 	}
-	if (firebat2.getFireball() != NULL) {
-		window->draw(firebat2.getFireball()->getSprite());
+	else  if (screen == "play") {
+
+		window->clear();
+
+		//Drawing on main Map View
+		window->setView(mainMapView);
+
+		renderMap();
+		window->draw(player1.getSprite());
+		window->draw(player2.getSprite());
+		window->draw(bat.getSprite());
+		window->draw(firebat1.getSprite());
+		window->draw(firebat2.getSprite());
+
+		if (firebat1.getFireball() != NULL) {
+			window->draw(firebat1.getFireball()->getSprite());
+		}
+		if (firebat2.getFireball() != NULL) {
+			window->draw(firebat2.getFireball()->getSprite());
+		}
+
+		for (auto i : this->obj)
+		{
+			i.render(*window);
+		}
+
+		//Drawing on UI view
+		window->setView(UI);
+		drawHearts();
+
+		this->drawSpeedGUI(window);
+
+		window->display();
+
+		window->setView(window->getDefaultView());
 	}
 
-	for (auto i : this->obj)
-	{
-		i.render(*window);
-	}
 
-	//Drawing on UI view
-	window->setView(UI);
-	drawHearts();
 
-	this->drawSpeedGUI(window);
-
-	window->display();
-
-	window->setView(window->getDefaultView());
+	
 
 	
 }
