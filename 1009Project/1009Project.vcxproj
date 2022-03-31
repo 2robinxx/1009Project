@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bat.cpp" />
+    <ClCompile Include="FireBat.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="CollisionChecker.cpp" />
     <ClCompile Include="Entity.cpp" />
@@ -159,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bat.h" />
+    <ClInclude Include="FireBat.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="CollisionChecker.h" />
     <ClInclude Include="Entity.h" />

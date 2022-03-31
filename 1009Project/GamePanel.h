@@ -7,6 +7,7 @@
 #include "Sound.h"
 #include "Health.h"
 #include "Object.h"
+#include "FireBat.h"
 #include <iostream>
 #include <vector>
 
@@ -45,6 +46,7 @@ private:
 	Player player1;
 	Player player2;
 	Bat bat;
+	FireBat firebat1, firebat2;
 
 	vector<Object> obj;
 	float spawnTimerMax;

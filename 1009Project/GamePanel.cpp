@@ -2,7 +2,7 @@
 
 
 //Constructor/Destructor
-GamePanel::GamePanel() : player1(1), player2(2), bat(48.f, 48.f), tileManager("Sprites/maps/map01.txt"), collisionChecker(&tileManager){
+GamePanel::GamePanel() : player1(1), player2(2), bat(48.f, 48.f), firebat1(48.f, 48.f, &player1), firebat2(48.f, 48.f, (WORLD_WIDTH - 48), 0, &player2), tileManager("Sprites/maps/map01.txt"), collisionChecker(&tileManager){
 	initVariables();
 	initWindow();
 
@@ -77,8 +77,9 @@ void GamePanel::update() {
 	pollEvents();
 	collisionChecker.checkTileCollision(&player1);
 	collisionChecker.checkTileCollision(&player2);
-	collisionChecker.checkMobCollision(&player1, &bat);
-	collisionChecker.checkMobCollision(&player2, &bat);
+
+	collisionChecker.checkMobCollision(player1, bat);
+	collisionChecker.checkMobCollision(player2, bat);
 
 	player1.setMovement();
 	player2.setMovement();
@@ -88,6 +89,12 @@ void GamePanel::update() {
 
 	bat.setMovement();
 	bat.setPosition();
+
+	firebat1.setMovement();
+	firebat1.setPosition();
+
+	firebat2.setMovement();
+	firebat2.setPosition();
 
 	this->spawnObj();
 	this->objCollision();
@@ -123,6 +130,15 @@ void GamePanel::render() {
 	window->draw(player1.getSprite());
 	window->draw(player2.getSprite());
 	window->draw(bat.getSprite());
+	window->draw(firebat1.getSprite());
+	window->draw(firebat2.getSprite());
+
+	if (firebat1.getFireball() != NULL) {
+		window->draw(firebat1.getFireball()->getSprite());
+	}
+	if (firebat2.getFireball() != NULL) {
+		window->draw(firebat2.getFireball()->getSprite());
+	}
 
 	for (auto i : this->obj)
 	{

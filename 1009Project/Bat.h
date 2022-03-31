@@ -6,7 +6,7 @@ using namespace std;
 
 //Object to be inherited by Player and Mobs.
 class Bat : public Entity{
-private:
+protected:
 	int damage;
 	string verticalDirection;
 public:
