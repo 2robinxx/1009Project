@@ -105,7 +105,7 @@ void EndScreen::MoveUp()
 
 void EndScreen::MoveDown()
 {
-    if (selectedItemIndex+1 <= itemSelection)
+    if (selectedItemIndex + 1 < itemSelection)
     {
         selectedItemIndex++;
     }
@@ -115,6 +115,7 @@ void EndScreen::MoveDown()
 int EndScreen::toggleMenu()
 {
     enterPressKey = 0;
+
     if (sf::Keyboard::isKeyPressed(upPress))
     {
         MoveUp();
@@ -123,11 +124,6 @@ int EndScreen::toggleMenu()
     if (sf::Keyboard::isKeyPressed(downPress))
     {
         MoveDown();
-    }
-
-    if (sf::Keyboard::isKeyPressed(upPress))
-    {
-        MoveUp();
     }
 
     if (sf::Keyboard::isKeyPressed(enterPress))

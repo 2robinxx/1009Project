@@ -1,1 +1,11 @@
-﻿  1009Project.vcxproj -> C:\Users\MysterYus\Documents\GitHub\1009Project\Debug\1009Project.exe
+﻿  GamePanel.cpp
+C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\EndScreen.h(3,1): warning C4005: 'itemSelection': macro redefinition
+C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\Menu.h(4): message : see previous definition of 'itemSelection'
+C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\GamePanel.cpp(28,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\GamePanel.cpp(61,38): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\GamePanel.cpp(283,23): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\GamePanel.cpp(287,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\GamePanel.cpp(290,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\GamePanel.cpp(401,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\GamePanel.cpp(402,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  1009Project.vcxproj -> C:\Users\MysterYus\Documents\GitHub\1009Project\Debug\1009Project.exe

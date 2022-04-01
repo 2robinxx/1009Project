@@ -66,9 +66,35 @@ void GamePanel::initText()
 void GamePanel::pollEvents() {
 	while (window->pollEvent(this->ev))
 	{
-		if (ev.type == sf::Event::Closed) {
-			window->close();
+		switch (ev.type)
+		{
+			case sf::Event::KeyPressed:
+				if (screen == "menu" && (ev.key.code == sf::Keyboard::Up || ev.key.code == sf::Keyboard::Down || ev.key.code == sf::Keyboard::Enter)) {
+
+					menu.toggleMenu();
+					break;
+				}
+
+				if (screen == "end" && (ev.key.code == sf::Keyboard::Up || ev.key.code == sf::Keyboard::Down || ev.key.code == sf::Keyboard::Enter)) {
+
+					endscreen.toggleMenu();
+					break;
+				}
+
+				break;
+
+
+
+			case sf::Event::Closed:
+				window->close();
+				break;
+
+			default:
+				break;
+
+				
 		}
+
 	}
 }
 
@@ -77,7 +103,7 @@ void GamePanel::update() {
 
 	if (screen == "menu") {
 
-		menu.toggleMenu();
+		
 
 		// Play option
 		if (menu.selectedItemIndex == 0 && menu.enterPressKey == 1) {
@@ -95,7 +121,7 @@ void GamePanel::update() {
 	}
 	if (screen == "end") {
 
-		endscreen.toggleMenu();
+		
 		this->playtime += 0;
 		cout << "This game was played for: " << playtime << endl;
 
