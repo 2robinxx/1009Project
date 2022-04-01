@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bat.cpp" />
+    <ClCompile Include="EndScreen.cpp" />
     <ClCompile Include="FireBat.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Object.cpp" />
@@ -161,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bat.h" />
+    <ClInclude Include="EndScreen.h" />
     <ClInclude Include="FireBat.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Object.h" />

@@ -8,6 +8,7 @@
 #include "Health.h"
 #include "Object.h"
 #include "Menu.h"
+#include "EndScreen.h"
 #include "FireBat.h"
 #include <iostream>
 #include <vector>
@@ -41,6 +42,7 @@ private:
 	Sound sound;
 	Health health;
 	Menu menu;
+	EndScreen endscreen;
 
 
 	//Objects

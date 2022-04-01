@@ -17,7 +17,7 @@ GamePanel::GamePanel() : player1(1), player2(2), bat(48.f, 48.f), firebat1(48.f,
 GamePanel::~GamePanel() {
 	delete window;
 	
-	cout << "This game was played for: " << playtime << endl;
+	
 	cout << "GamePanel destroyed. Game closed" << endl;
 }
 
@@ -93,6 +93,27 @@ void GamePanel::update() {
 
 		}
 	}
+	if (screen == "end") {
+
+		endscreen.toggleMenu();
+		this->playtime += 0;
+		cout << "This game was played for: " << playtime << endl;
+
+		// Play option
+		if (endscreen.selectedItemIndex == 0 && endscreen.enterPressKey == 1) {
+
+			screen = "play";
+
+		}
+		
+		//Quit option
+		else if (endscreen.selectedItemIndex == 1 && endscreen.enterPressKey == 1) {
+
+			//close window gracefully
+			window->close();
+
+		}
+	}
 	else if (screen == "play") {
 
 
@@ -134,9 +155,8 @@ void GamePanel::update() {
 		checkDeath();
 
 		if (checkGoal() == 1 || checkGoal() == 2 || checkDeath() == 1 || checkDeath() == 2) {
-
-			//what to show when checkgoal/checkdeath criteria is met?
-
+			//comment out the line to remove the end screen
+			this->screen = "end";
 
 		}
 
@@ -154,12 +174,6 @@ void GamePanel::update() {
 
 	}
 
-
-
-
-	
-
-
 }
 
 void GamePanel::render() {
@@ -168,6 +182,15 @@ void GamePanel::render() {
 
 		window->clear();
 		menu.draw(*window, window->getSize().x, window->getSize().y);
+		window->display();
+
+
+	}
+	if (this->screen == "end") {
+
+		window->clear();
+		endscreen.playerwon = checkGoal();
+		endscreen.draw(*window, window->getSize().x, window->getSize().y);
 		window->display();
 
 
