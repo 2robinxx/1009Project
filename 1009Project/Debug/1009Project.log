@@ -1,11 +1,28 @@
-﻿  GamePanel.cpp
-C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\EndScreen.h(3,1): warning C4005: 'itemSelection': macro redefinition
-C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\Menu.h(4): message : see previous definition of 'itemSelection'
-C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\GamePanel.cpp(28,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\GamePanel.cpp(61,38): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\GamePanel.cpp(283,23): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\GamePanel.cpp(287,24): warning C4018: '<': signed/unsigned mismatch
-C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\GamePanel.cpp(290,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\GamePanel.cpp(401,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\GamePanel.cpp(402,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+﻿  EndScreen.cpp
+C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\EndScreen.cpp(28,64): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\EndScreen.cpp(35,64): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\EndScreen.cpp(55,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\EndScreen.cpp(71,82): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\EndScreen.cpp(87,82): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\EndScreen.cpp(139): warning C4715: 'EndScreen::toggleMenu': not all control paths return a value
   1009Project.vcxproj -> C:\Users\MysterYus\Documents\GitHub\1009Project\Debug\1009Project.exe

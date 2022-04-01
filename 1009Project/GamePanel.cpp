@@ -182,6 +182,7 @@ void GamePanel::update() {
 
 		if (checkGoal() == 1 || checkGoal() == 2 || checkDeath() == 1 || checkDeath() == 2) {
 			//comment out the line to remove the end screen
+			
 			this->screen = "end";
 
 		}
@@ -215,7 +216,6 @@ void GamePanel::render() {
 	if (this->screen == "end") {
 
 		window->clear();
-		endscreen.playerwon = checkGoal();
 		endscreen.draw(*window, window->getSize().x, window->getSize().y);
 		window->display();
 
@@ -411,11 +411,13 @@ inline int GamePanel::checkGoal() {
 	
 	if (player1.getY() <= 48 * 1) {
 		cout << "Player 1 wins"<< endl;
+		endscreen.playerwon = 1;
 		return 1;
 
 	}
 	if (player2.getY() <= 48 * 1) {
 		cout << "Player 2 wins" << endl;
+		endscreen.playerwon = 2;
 		return 2;
 	}
 	return 3;
@@ -425,11 +427,12 @@ inline int GamePanel::checkDeath() {
 
 	if (player1.getY() >= this->player2.getY()+(48*18)||player1.getHealth()==0) {
 		cout << "Player 1 died" << endl;
+		endscreen.playerwon = 2;
 		return 1;
-
 	}
 	if (player2.getY() >= this->player1.getY() + (48 * 18) || player2.getHealth() == 0) {
 		cout << "Player 2 died" << endl;
+		endscreen.playerwon = 1;
 		return 2;
 	}
 	return 3;

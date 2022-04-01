@@ -19,18 +19,20 @@ void EndScreen::draw(sf::RenderTarget& target, int height, int width)
 
         // error handling if file not loaded
     }
-    
+
     if (playerwon == 1) {
+
         statement.setFont(font);
         statement.setFillColor(sf::Color::White);
         statement.setString("Player 1 win");
-        statement.setPosition(sf::Vector2f(width / 2.f, height / (itemSelection + 1)));
+        statement.setPosition(sf::Vector2f(width / 2.f, height / ((itemSelection + 1) + 0)));
     }
     else if (playerwon == 2) {
+
         statement.setFont(font);
         statement.setFillColor(sf::Color::White);
         statement.setString("Player 2 win");
-        statement.setPosition(sf::Vector2f(width / 2.f, height / (itemSelection + 1)));
+        statement.setPosition(sf::Vector2f(width / 2.f, height / ((itemSelection + 1) + 0)));
     
     }
     
@@ -84,12 +86,14 @@ void EndScreen::draw(sf::RenderTarget& target, int height, int width)
     option[2].setString("Highscores");
     option[2].setPosition(sf::Vector2f(width / 2.f, height / (itemSelection + 1) + 300));
 
+    target.draw(statement);
+
     for (int i = 0; i < itemSelection; i++)
     {
         target.draw(option[i]);
     }
 
-    target.draw(statement);
+    
 
 
 }
