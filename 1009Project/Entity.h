@@ -23,12 +23,13 @@ using namespace std;
 //Object to be inherited by Player and Mobs.
 class Entity {
 protected:
+	//Variables
 	sf::Texture idleSprite, leftSprite1, leftSprite2, rightSprite1, rightSprite2;
 	sf::RectangleShape sprite;
-
 	float x, y, width, height;
 	int spriteCounter, spriteNum, speed, verticalSpeed;
 	string direction;
+
 public:
 	//Constructor/Destructor
 	Entity();
@@ -36,9 +37,9 @@ public:
 
 	//Functions
 	void initHitbox();
+	void setSprite(string);
 
 	//Interfaces
-	void setSprite(string);
 	sf::RectangleShape getSprite();
 	void setPosition();
 	void setX(float);

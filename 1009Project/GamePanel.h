@@ -1,5 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include <vector>
 #include "Player.h"
 #include "TileManager.h"
 #include "CollisionChecker.h"
@@ -10,8 +12,6 @@
 #include "Menu.h"
 #include "EndScreen.h"
 #include "FireBat.h"
-#include <iostream>
-#include <vector>
 
 #ifndef GRID_HEIGHT
 	#define GRID_HEIGHT 50
@@ -34,22 +34,14 @@ using namespace std;
 //Object to call all the other functions of the game.
 class GamePanel {
 private:
+	//Variables
 	sf::RenderWindow* window;
 	sf::VideoMode videoMode;
 	sf::Event ev;
 	sf::View mainMapView;
 	sf::View UI;
-	Sound sound;
-	Health health;
-	Menu menu;
-	EndScreen endscreen;
-
-
-	//Objects
-	Player player1;
-	Player player2;
-	Bat bat;
-	FireBat firebat1, firebat2;
+	sf::Font font;
+	sf::Text guiSpeedText;
 
 	vector<Object> obj;
 	float spawnTimerMax;
@@ -58,20 +50,25 @@ private:
 	double playtime = 0;
 	string screen;
 
-	sf::Font font;
-	sf::Text guiSpeedText;
-
-
+	//Objects
+	Player player1;
+	Player player2;
+	Bat bat;
+	FireBat firebat1, firebat2;
+	Sound sound;
+	Health health;
+	Menu menu;
+	EndScreen endscreen;
 
 	//Functions
 	void initVariables();
 	void initWindow();
-
 	void initFont();
 	void initText();
 
 
 public:
+	//Objects
 	TileManager tileManager;
 	CollisionChecker collisionChecker;
 
@@ -84,21 +81,15 @@ public:
 	void update();
 	void render();
 	void renderMap();
-
 	void spawnObj();
 	void objCollision();
-
-	//checking death and goal
-	int checkGoal();
-	int checkDeath();
+	void playBackgroundMusic();
+	void drawHearts();
+	inline void drawSpeedGUI(sf::RenderTarget* target);
+	void updateSpeedGUI();
+	inline int checkGoal();
+	inline int checkDeath();
 
 	//Interfaces
 	const bool getWindowIsOpen();
-
-	void playBackgroundMusic();
-	void drawHearts();
-
-	void drawSpeedGUI(sf::RenderTarget* target);
-	void updateSpeedGUI();
-
 };

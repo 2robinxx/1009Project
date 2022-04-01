@@ -7,14 +7,17 @@ using namespace std;
 
 class FireBall;
 
-//Object to be inherited by Player and Mobs.
+//Object of a special type of bat that shoots fireballs
 class FireBat : public Bat {
 private:
-	Player* player;
-	FireBall* fireball;
+	//Variables
 	int fireSpeed;
 	time_t idleTimer, restTimer;
 	bool isIdle, isRest;
+
+	//Object pointers
+	Player* player;
+	FireBall* fireball;
 
 public:
 	//Constructor/Destructor
@@ -33,6 +36,7 @@ public:
 	int getDamage();
 };
 
+//Object of fireball projectiles that FireBat fires
 class FireBall : public Entity {
 public:
 	//Constructor/Destructor

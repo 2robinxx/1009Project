@@ -15,6 +15,7 @@ TileManager::~TileManager() {
 	cout << "TileManager destroyed." << endl;
 }
 
+
 //Functions
 //Read the text file to know where to draw each individual tiles into the game.
 void TileManager::readMapFromFile(string map) {

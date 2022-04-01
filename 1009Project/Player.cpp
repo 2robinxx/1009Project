@@ -1,6 +1,6 @@
 #include "Player.h"
 
-// Constructors / Destructors
+//Constructors / Destructors
 Player::Player(int player) {
 	if (player == 1) {
 		initSprite(1);
@@ -26,16 +26,26 @@ Player::Player(int player) {
 	speed = 4;
 	verticalSpeed = 8;
 	jumpTo = 0;
+
 	isImmune = false;
 	isCollidingFeet = false;
+	immunityTimer = 0;
+	isColliding = false;
+	isCollidingHead = false;
+	isFalling = false;
+	isJumping = false;
+	isSliding = false;
+
 	initHitbox();
 }
 
 Player::~Player() {
-	cout << "Player destroyed" << endl;
+	cout << "Player destroyed." << endl;
 }
 
-// Functions
+
+//Functions
+//Initialize sprites for players
 void Player::initSprite(int player) {
 	if (player == 1) {
 		idleSprite.loadFromFile("Sprites/player/dino_idle.png");
@@ -56,6 +66,7 @@ void Player::initSprite(int player) {
 //Control player's movements
 void Player::setMovement() {
 
+	//Falling function
 	if (isFalling == true || isJumping == false) {
 		if (isCollidingFeet == false) {
 			y += verticalSpeed;
@@ -66,6 +77,7 @@ void Player::setMovement() {
 		}
 	}
 
+	//Jump function
 	if (isJumping == true) {
 		if (y > jumpTo) {
 			y -= verticalSpeed;
@@ -77,6 +89,7 @@ void Player::setMovement() {
 		}
 	}
 
+	//Left,Right and Jumping function
 	if (sf::Keyboard::isKeyPressed(leftKeyPressed) && !sf::Keyboard::isKeyPressed(rightKeyPressed)) {
 		direction = "left";
 		setSprite("left");
@@ -101,15 +114,17 @@ void Player::setMovement() {
 			jumpTo = y - (48 * 4);
 			isJumping = true;
 
-			//When jump, play sound
 			playJumpSound();
 		}
 	}
+
+	//Sliding function
 	if (isSliding == true) {
 		doSlide();
 	}
 }
 
+//Sliding function
 void Player::doSlide() {
 	if (sf::Keyboard::isKeyPressed(leftKeyPressed) && !sf::Keyboard::isKeyPressed(rightKeyPressed)) {
 		slideLeftTimer = 40;
@@ -133,16 +148,14 @@ void Player::doSlide() {
 	}
 }
 
-void Player::setSpeed(int s)
-{
-	this->speed += s;
+//Function to check if immunity expired
+void Player::checkImmune() {
+	if (time(NULL) >= immunityTimer) {
+		isImmune = false;
+	}
 }
 
-void Player::setDamage(int d)
-{
-	this->health -= d;
-}
-
+//Increase player health
 void Player::gainHealth(int h)
 {
 	if (this->health > 3)
@@ -153,10 +166,18 @@ void Player::gainHealth(int h)
 	{
 		this->health += h;
 	}
-
-	
 }
 
+//Play jumping sound
+void Player::playJumpSound() {
+	sound.setBuffer("Sprites/sound/coin.wav");
+	sound.playSound();
+}
+
+//Deduct player health
+void Player::deductHealth() {
+	health -= 1;
+}
 
 
 // Interfaces
@@ -221,12 +242,6 @@ void Player::setImmune() {
 	immunityTimer = time(NULL) + 1;
 }
 
-void Player::checkImmune() {
-	if (time(NULL) >= immunityTimer) {
-		isImmune = false;
-	}
-}
-
 bool Player::getImmune() {
 	return isImmune;
 }
@@ -236,14 +251,12 @@ int Player::getHealth() {
 
 }
 
-//Play Sound
-void Player::playJumpSound() {
-	sound.setBuffer("Sprites/sound/coin.wav");
-	sound.playSound();
+void Player::setSpeed(int s)
+{
+	this->speed += s;
 }
 
-void Player::deductHealth() {
-
-	health -= 1;
-
+void Player::setDamage(int d)
+{
+	this->health -= d;
 }

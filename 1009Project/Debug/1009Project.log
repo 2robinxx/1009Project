@@ -1,28 +1,61 @@
-﻿  EndScreen.cpp
-C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\EndScreen.cpp(28,64): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+﻿  CollisionChecker.cpp
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(17,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(18,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(19,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(20,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(39,55): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(40,58): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(50,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(61,62): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(73,55): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(74,61): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(75,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(76,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(98,55): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(99,61): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(100,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(101,42): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  FireBat.cpp
+  GamePanel.cpp
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\EndScreen.h(3,1): warning C4005: 'itemSelection': macro redefinition
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\Menu.h(4): message : see previous definition of 'itemSelection'
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(26,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(60,38): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(255,26): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(259,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(262,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(366,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(367,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Health.cpp
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\EndScreen.h(3,1): warning C4005: 'itemSelection': macro redefinition
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\Menu.h(4): message : see previous definition of 'itemSelection'
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\Health.cpp(15,36): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\EndScreen.cpp(35,64): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\Health.cpp(15,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\EndScreen.cpp(55,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\EndScreen.cpp(71,82): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\EndScreen.cpp(87,82): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\MysterYus\Documents\GitHub\1009Project\1009Project\EndScreen.cpp(139): warning C4715: 'EndScreen::toggleMenu': not all control paths return a value
-  1009Project.vcxproj -> C:\Users\MysterYus\Documents\GitHub\1009Project\Debug\1009Project.exe
+  Main.cpp
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\EndScreen.h(3,1): warning C4005: 'itemSelection': macro redefinition
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\Menu.h(4): message : see previous definition of 'itemSelection'
+  TileManager.cpp
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(51,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(51,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(54,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(54,54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(57,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(57,53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(60,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(60,54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(63,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(63,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(66,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(66,58): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(69,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(69,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+  1009Project.vcxproj -> C:\Users\Soh Wen Yue\source\repos\1009Project\Debug\1009Project.exe

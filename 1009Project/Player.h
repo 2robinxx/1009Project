@@ -8,17 +8,19 @@ using namespace std;
 //Object for player 1 and 2.
 class Player : public Entity {
 private:
+	//Variables
 	int jumpTo;
 	int slideLeftTimer = 0, slideRightTimer = 0;
 	bool isFalling, isJumping, isColliding, isCollidingFeet, isCollidingHead, isSliding, isImmune;
 	int health = 3;
 	time_t immunityTimer;
-
 	sf::Keyboard::Key leftKeyPressed, rightKeyPressed, jumpKeyPressed;
+
+	//Objects
+	Sound sound;
 
 public:
 	//Constructor/Destructor
-	Sound sound;
 	Player(int);
 	~Player();
 
@@ -26,11 +28,10 @@ public:
 	void initSprite(int);
 	void setMovement();
 	void doSlide();
-
-	void setSpeed(int);
-	void setDamage(int);
+	void checkImmune();
 	void gainHealth(int);
-
+	void playJumpSound();
+	void deductHealth();
 
 	//Interfaces
 	void setCollidingFeet(bool);
@@ -48,10 +49,8 @@ public:
 	void setDirection(string);
 	string getDirection();
 	void setImmune();
-	void checkImmune();
 	bool getImmune();
 	int getHealth();
-	void deductHealth();
-
-	void playJumpSound();
+	void setSpeed(int);
+	void setDamage(int);
 };

@@ -1,6 +1,6 @@
 #include "Entity.h"
 
-// Constructors / Destructors
+//Constructors / Destructors
 Entity::Entity() {
 	speed = 4;
 	verticalSpeed = 8;
@@ -17,14 +17,15 @@ Entity::~Entity() {
 	cout << "Entity destroyed." << endl;
 }
 
-// Functions
+//Functions
+//Initialize the hitbox for entities
 void Entity::initHitbox() {
 	sprite = sf::RectangleShape(sf::Vector2f(width, height));
 	sprite.setPosition(x, y);
 	sprite.setTexture(&idleSprite);
 }
 
-// Interfaces
+//Set the sprite animation for entity
 void Entity::setSprite(string direction) {
 	spriteCounter++;
 	if (spriteCounter > 15) {
@@ -54,6 +55,7 @@ void Entity::setSprite(string direction) {
 	}
 }
 
+//Interfaces
 sf::RectangleShape Entity::getSprite() {
 	return sprite;
 }

@@ -18,9 +18,11 @@ using namespace std;
 //Object to handle drawing all the tiles into the game.
 class TileManager {
 private:
+	//Variables
 	int mapTileNum[GRID_HEIGHT][GRID_WIDTH];
 
 public:
+	//Variables
 	vector<vector<Tile*>> tiles;
 
 	//Constructor/Destructor

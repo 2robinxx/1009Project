@@ -19,7 +19,8 @@ Tile::~Tile() {
 	cout << "Tile destroyed." << endl;
 }
 
-//Interfaces
+
+//Functions
 void Tile::setUpSprite(string path) {
 	texture.loadFromFile(path);
 	texture.setSmooth(true);
@@ -27,17 +28,18 @@ void Tile::setUpSprite(string path) {
 	sprite.setTexture(&texture);
 }
 
+void Tile::setPosition(float x, float y) {
+	position = sf::Vector2f(x, y);
+	sprite.setPosition(position);
+}
+
+//Interfaces
 bool Tile::getCollision() {
 	return collision;
 }
 
 bool Tile::getSliding() {
 	return sliding;
-}
-
-void Tile::setPosition(float x, float y) {
-	position = sf::Vector2f(x, y);
-	sprite.setPosition(position);
 }
 
 sf::RectangleShape Tile::getSprite() {

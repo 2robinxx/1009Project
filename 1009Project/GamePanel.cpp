@@ -3,49 +3,47 @@
 
 //Constructor/Destructor
 GamePanel::GamePanel() : player1(1), player2(2), bat(48.f, 48.f), firebat1(48.f, 48.f, &player1), firebat2(48.f, 48.f, (WORLD_WIDTH - 48), 0, &player2), tileManager("Sprites/maps/map01.txt"), collisionChecker(&tileManager){
+	
 	initVariables();
 	initWindow();
-
 	initFont();
 	initText();
 
 	//Play background music
 	playBackgroundMusic();
-	
 }
 
 GamePanel::~GamePanel() {
 	delete window;
-	
-	
 	cout << "GamePanel destroyed. Game closed" << endl;
 }
 
 //Functions
+//Initialize variables for the game
 void GamePanel::initVariables() {
 	window = nullptr;
 	this->spawnTimerMax = 10.f;
 	this->spawnTimer = this->spawnTimerMax;
 	this->maxObjects = 3;
 	this->screen = "menu";
-
-
 }
 
+//Initialize game window
 void GamePanel::initWindow() {
 
+	//Set application height and width
 	videoMode.height = 960;
 	videoMode.width = 768;
 
-	//Setting the view for the game
+	//Setting the camera view for the game
 	mainMapView.setSize(768.f, 700.f);
 
 	window = new sf::RenderWindow(videoMode, "Dino Jump", sf::Style::Close | sf::Style::Titlebar);
-
 	window->setFramerateLimit(60);
 
 }
 
+//Initialize font
 void GamePanel::initFont()
 {
 	if(!this->font.loadFromFile("Fonts/game_sans_serif_7.ttf"))
@@ -54,15 +52,15 @@ void GamePanel::initFont()
 	}
 }
 
+//Initialize texts
 void GamePanel::initText()
 {
 	this->guiSpeedText.setFont(this->font);
 	this->guiSpeedText.setFillColor(sf::Color::White);
 	this->guiSpeedText.setCharacterSize(30.f);
-
-	
 }
 
+//Set the ability to operate the game menus and the application.
 void GamePanel::pollEvents() {
 	while (window->pollEvent(this->ev))
 	{
@@ -74,74 +72,54 @@ void GamePanel::pollEvents() {
 					menu.toggleMenu();
 					break;
 				}
-
 				if (screen == "end" && (ev.key.code == sf::Keyboard::Up || ev.key.code == sf::Keyboard::Down || ev.key.code == sf::Keyboard::Enter)) {
 
 					endscreen.toggleMenu();
 					break;
 				}
-
 				break;
-
-
-
 			case sf::Event::Closed:
 				window->close();
 				break;
-
 			default:
 				break;
-
-				
 		}
-
 	}
 }
 
+//Constantly loops to update the game
 void GamePanel::update() {
 	pollEvents();
 
 	if (screen == "menu") {
-
-		
-
 		// Play option
 		if (menu.selectedItemIndex == 0 && menu.enterPressKey == 1) {
-
 			screen = "play";
-
 		}
 		//Quit option
 		else if (menu.selectedItemIndex == 1 && menu.enterPressKey == 1) {
 
-			//close window gracefully
+			//Close window
 			window->close();
-
 		}
 	}
 	if (screen == "end") {
 
-		
 		this->playtime += 0;
 		cout << "This game was played for: " << playtime << endl;
 
 		// Play option
 		if (endscreen.selectedItemIndex == 0 && endscreen.enterPressKey == 1) {
-
 			screen = "play";
-
 		}
-		
 		//Quit option
 		else if (endscreen.selectedItemIndex == 1 && endscreen.enterPressKey == 1) {
 
-			//close window gracefully
+			//Close window
 			window->close();
-
 		}
 	}
 	else if (screen == "play") {
-
 
 		collisionChecker.checkTileCollision(&player1);
 		collisionChecker.checkTileCollision(&player2);
@@ -174,9 +152,11 @@ void GamePanel::update() {
 		this->spawnObj();
 		this->objCollision();
 		this->updateSpeedGUI();
-		//setting up how long the user plays
+
+		//Setting up how long the user plays
 		this->playtime += (double)1 / 60;
-		//checking if player reached the top or died
+
+		//Checking if player reached the top or died
 		checkGoal();
 		checkDeath();
 
@@ -184,25 +164,21 @@ void GamePanel::update() {
 			//comment out the line to remove the end screen
 			
 			this->screen = "end";
-
 		}
-
 
 		//Setting camera movement to follow player that is highest in the screen
 		if (player1.getY() > player2.getY()) {
 
 			mainMapView.setCenter(window->getSize().x / 2.f, player2.getY());
-
 		}
 		else {
+
 			mainMapView.setCenter(window->getSize().x / 2.f, player1.getY());
-
 		}
-
 	}
-
 }
 
+//Constantly loops to render the sprites
 void GamePanel::render() {
 
 	if (this->screen == "menu") {
@@ -210,16 +186,12 @@ void GamePanel::render() {
 		window->clear();
 		menu.draw(*window, window->getSize().x, window->getSize().y);
 		window->display();
-
-
 	}
 	if (this->screen == "end") {
 
 		window->clear();
 		endscreen.draw(*window, window->getSize().x, window->getSize().y);
 		window->display();
-
-
 	}
 	else  if (screen == "play") {
 
@@ -358,13 +330,6 @@ void GamePanel::objCollision()
 	
 }
 
-//Interfaces
-const bool GamePanel::getWindowIsOpen() {
-	
-	return window->isOpen();
-}
-
-
 void GamePanel::playBackgroundMusic() {
 	sound.setBuffer("Sprites/sound/background.wav");
 	sound.setLoop();
@@ -408,9 +373,9 @@ void GamePanel::updateSpeedGUI()
 }
 
 inline int GamePanel::checkGoal() {
-	
+
 	if (player1.getY() <= 48 * 1) {
-		cout << "Player 1 wins"<< endl;
+		cout << "Player 1 wins" << endl;
 		endscreen.playerwon = 1;
 		return 1;
 
@@ -425,7 +390,7 @@ inline int GamePanel::checkGoal() {
 
 inline int GamePanel::checkDeath() {
 
-	if (player1.getY() >= this->player2.getY()+(48*18)||player1.getHealth()==0) {
+	if (player1.getY() >= this->player2.getY() + (48 * 18) || player1.getHealth() == 0) {
 		cout << "Player 1 died" << endl;
 		endscreen.playerwon = 2;
 		return 1;
@@ -436,4 +401,10 @@ inline int GamePanel::checkDeath() {
 		return 2;
 	}
 	return 3;
+}
+
+//Interfaces
+const bool GamePanel::getWindowIsOpen() {
+	
+	return window->isOpen();
 }

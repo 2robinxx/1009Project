@@ -4,11 +4,13 @@
 
 using namespace std;
 
-//Object to be inherited by Player and Mobs.
+//Bat monster object.
 class Bat : public Entity{
 protected:
+	//Variables
 	int damage;
 	string verticalDirection;
+
 public:
 	//Constructor/Destructor
 	Bat(float, float);

@@ -1,6 +1,6 @@
 #include "Bat.h"
 
-// Constructors / Destructors
+//Constructors / Destructors
 Bat::Bat(float width, float height) {
 	this->width = width;
 	this->height = height;
@@ -27,7 +27,8 @@ Bat::~Bat() {
 	cout << "Bat destroyed." << endl;
 }
 
-// Functions
+//Functions
+//Set the movement pattern for bats
 void Bat::setMovement() {
 	if (x <= 0) {
 		direction = "right";
@@ -60,6 +61,7 @@ void Bat::setMovement() {
 	}
 }
 
+//Initialize the sprites for bat
 void Bat::initSprite() {
 	idleSprite.loadFromFile("Sprites/mob/bat_left_1.png");
 	leftSprite1.loadFromFile("Sprites/mob/bat_left_1.png");

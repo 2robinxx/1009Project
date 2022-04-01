@@ -15,15 +15,16 @@ private:
 public:
 
 	//Constructor/Destructor
-	Tile();
 	Tile(string, bool, bool);
 	Tile(string, float, float, bool, bool);
 	~Tile();
 
-	//Interfaces
+	//Functions
 	void setUpSprite(string);
+	void setPosition(float, float);
+
+	//Interfaces
 	bool getCollision();
 	bool getSliding();
-	void setPosition(float, float);
 	sf::RectangleShape getSprite();
 };
