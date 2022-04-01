@@ -155,28 +155,72 @@ void Player::checkImmune() {
 	}
 }
 
+//Play jumping sound
+inline void Player::playJumpSound() {
+	sound.setBuffer("Sprites/sound/coin.wav");
+	sound.playSound();
+}
+
+//Increase player health
+void Player::gainHealth()
+{
+	health += 1;
+}
+
 //Increase player health
 void Player::gainHealth(int h)
 {
-	if (this->health > 3)
+	if (health > 3)
 	{
-		this->health = 3;
+		health = 3;
 	}
 	else
 	{
-		this->health += h;
+		health += h;
 	}
-}
-
-//Play jumping sound
-void Player::playJumpSound() {
-	sound.setBuffer("Sprites/sound/coin.wav");
-	sound.playSound();
 }
 
 //Deduct player health
 void Player::deductHealth() {
 	health -= 1;
+}
+
+void Player::deductHealth(int h) {
+	health = health - h;
+}
+
+
+//Operator overload. Compare player's height
+bool Player::operator>(Entity& entity) {
+	return this->getY() > entity.getY();
+}
+
+bool Player::operator>=(Entity& entity) {
+	return this->getY() >= entity.getY();
+}
+
+bool Player::operator<(Entity& entity) {
+	return this->getY() < entity.getY();
+}
+
+bool Player::operator<=(Entity& entity) {
+	return this->getY() <= entity.getY();
+}
+
+bool Player::operator>(float y) {
+	return this->getY() > y;
+}
+
+bool Player::operator>=(float y) {
+	return this->getY() >= y;
+}
+
+bool Player::operator<(float y) {
+	return this->getY() < y;
+}
+
+bool Player::operator<=(float y) {
+	return this->getY() <= y;
 }
 
 
@@ -248,7 +292,6 @@ bool Player::getImmune() {
 
 int Player::getHealth() {
 	return health;
-
 }
 
 void Player::setSpeed(int s)

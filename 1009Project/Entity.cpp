@@ -83,3 +83,7 @@ float Entity::getY() {
 float Entity::getSpeed() {
 	return speed;
 }
+
+float Entity::getVerticalSpeed() {
+	return verticalSpeed;
+}

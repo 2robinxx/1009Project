@@ -36,8 +36,8 @@ void CollisionChecker::checkTileCollision(Player* player) {
 
 	//Check if tile is colliding with player when jumping
 	if (player->getJumping() == true) {
-		topRow = (player->getY() - player->getSpeed() + 16) / 48;
-		bottomRow = (player->getY() + 48 - player->getSpeed()) / 48;
+		topRow = (player->getY() - player->getVerticalSpeed() + 16) / 48;
+		bottomRow = (player->getY() + 48 - player->getVerticalSpeed()) / 48;
 
 		if (tileManager->tiles[topRow][leftCol]->getCollision() == true || tileManager->tiles[topRow][rightCol]->getCollision() == true) {
 			player->setCollidingHead(true);

@@ -29,9 +29,21 @@ public:
 	void setMovement();
 	void doSlide();
 	void checkImmune();
+	inline void playJumpSound();
+	void gainHealth();
 	void gainHealth(int);
-	void playJumpSound();
 	void deductHealth();
+	void deductHealth(int);
+
+	//Operator overload
+	bool operator>(Entity&);
+	bool operator>=(Entity&);
+	bool operator<(Entity&);
+	bool operator<=(Entity&);
+	bool operator>(float);
+	bool operator>=(float);
+	bool operator<(float);
+	bool operator<=(float);
 
 	//Interfaces
 	void setCollidingFeet(bool);

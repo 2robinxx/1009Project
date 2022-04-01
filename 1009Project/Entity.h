@@ -20,7 +20,7 @@
 
 using namespace std;
 
-//Object to be inherited by Player and Mobs.
+//Object to be inherited by all Player and Mobs.
 class Entity {
 protected:
 	//Variables
@@ -47,4 +47,5 @@ public:
 	void setY(float);
 	float getY();
 	float getSpeed();
+	float getVerticalSpeed();
 };

@@ -66,7 +66,6 @@ private:
 	void initFont();
 	void initText();
 
-
 public:
 	//Objects
 	TileManager tileManager;
@@ -83,7 +82,7 @@ public:
 	void renderMap();
 	void spawnObj();
 	void objCollision();
-	void playBackgroundMusic();
+	inline void playBackgroundMusic();
 	void drawHearts();
 	inline void drawSpeedGUI(sf::RenderTarget* target);
 	void updateSpeedGUI();

@@ -27,7 +27,7 @@ public:
 
 	//Functions
 	void setMovement();
-	void setAttack();
+	inline void setAttack();
 	void initSprite();
 
 	//Interfaces
@@ -44,7 +44,7 @@ public:
 	~FireBall();
 
 	//Functions
-	void setMovement();
+	inline void setMovement();
 	void initSprite();
 };
 #pragma once

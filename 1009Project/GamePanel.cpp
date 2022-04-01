@@ -167,7 +167,7 @@ void GamePanel::update() {
 		}
 
 		//Setting camera movement to follow player that is highest in the screen
-		if (player1.getY() > player2.getY()) {
+		if (player1 > player2) {
 
 			mainMapView.setCenter(window->getSize().x / 2.f, player2.getY());
 		}
@@ -229,24 +229,18 @@ void GamePanel::render() {
 
 		window->setView(window->getDefaultView());
 	}
-
-
-
-	
-
-	
 }
 
+//Draw tiles onto the game
 void GamePanel::renderMap() {
 	for (int i = 0; i < GRID_HEIGHT; i++) {
-
 		for (int j = 0; j < GRID_WIDTH; j++) {
 			window->draw(tileManager.tiles[i][j]->getSprite());
 		}
-
 	}
 }
 
+//Spawn objects
 void GamePanel::spawnObj()
 {
 	//Timer
@@ -261,10 +255,10 @@ void GamePanel::spawnObj()
 			this->obj.push_back(Object(*this->window, rand()% objectType::NOFT));
 			this->spawnTimer = 0.f;
 		}
-		
 	}
 }
 
+//Check object collision
 void GamePanel::objCollision()
 {
 	//Check the Collsion
@@ -290,12 +284,8 @@ void GamePanel::objCollision()
 					cout << "Player 1 Health is " << player1.getHealth() << endl;
 					break;
 			}
-		
 			//REMOVE OBJECT
 			this->obj.erase(this->obj.begin() + i);
-		
-			
-		
 		}
 		else if (this->player2.getSprite().getGlobalBounds().intersects(this->obj[i].getObject().getGlobalBounds()))
 		{
@@ -320,22 +310,18 @@ void GamePanel::objCollision()
 
 			//REMOVE OBJECT
 			this->obj.erase(this->obj.begin() + i);
-			
 		}
-
 	}
-
-	
-	
-	
 }
 
-void GamePanel::playBackgroundMusic() {
+//Play background music for the game
+inline void GamePanel::playBackgroundMusic() {
 	sound.setBuffer("Sprites/sound/background.wav");
 	sound.setLoop();
 	sound.playSound();
 }
 
+//Draw player hearts onto the screen
 void GamePanel::drawHearts() {
 	int subsetHeartP1 = 100;
 	for (int i = 0; i < player1.getHealth(); i++) {
@@ -348,16 +334,15 @@ void GamePanel::drawHearts() {
 		window->draw(health.loadTexture(subsetHeartP2, 100));
 		subsetHeartP2 += 20;
 	}
-
-
 }
 
-
+//Draw player speed onto the screen
 inline void GamePanel::drawSpeedGUI(sf::RenderTarget* target)
 {
 	target->draw(this->guiSpeedText);
 }
 
+//Update player speed UI
 void GamePanel::updateSpeedGUI()
 {
 	int p1speed;
@@ -369,18 +354,18 @@ void GamePanel::updateSpeedGUI()
 	stringstream ss;
 	ss << " Player 1 speed: " << p1speed << "\t\t\t\t\t\t\t\t" << "Player 2 speed:  " << p2speed;
 	this->guiSpeedText.setString(ss.str());
-
 }
 
+//Check if player reached the goal
 inline int GamePanel::checkGoal() {
 
-	if (player1.getY() <= 48 * 1) {
+	if (player1 <= 48 * 1) {
 		cout << "Player 1 wins" << endl;
 		endscreen.playerwon = 1;
 		return 1;
 
 	}
-	if (player2.getY() <= 48 * 1) {
+	if (player2 <= 48 * 1) {
 		cout << "Player 2 wins" << endl;
 		endscreen.playerwon = 2;
 		return 2;
@@ -388,14 +373,15 @@ inline int GamePanel::checkGoal() {
 	return 3;
 }
 
+//Check if player died
 inline int GamePanel::checkDeath() {
 
-	if (player1.getY() >= this->player2.getY() + (48 * 18) || player1.getHealth() == 0) {
+	if (player1 >= this->player2.getY() + (48 * 18) || player1.getHealth() == 0) {
 		cout << "Player 1 died" << endl;
 		endscreen.playerwon = 2;
 		return 1;
 	}
-	if (player2.getY() >= this->player1.getY() + (48 * 18) || player2.getHealth() == 0) {
+	if (player2 >= this->player1.getY() + (48 * 18) || player2.getHealth() == 0) {
 		cout << "Player 2 died" << endl;
 		endscreen.playerwon = 1;
 		return 2;

@@ -41,6 +41,7 @@ FireBall::~FireBall() {
 //Set the movement pattern for FireBats. Overwrites parent Bat's setMovement()
 void FireBat::setMovement() {
 
+	//Cooldown after attacking
 	if (time(NULL) > idleTimer) {
 		isIdle = false;
 		isRest = false;
@@ -58,6 +59,7 @@ void FireBat::setMovement() {
 		setAttack();
 	}
 
+	//Follow the player's height on the map
 	if (x > player->getX()) {
 		direction = "left";
 	}
@@ -65,10 +67,10 @@ void FireBat::setMovement() {
 		direction = "right";
 	}
 
-	if (y > player->getY()) {
+	if (*player < y) {
 		verticalDirection = "up";
 	}
-	else if (y < player->getY()) {
+	else if (*player > y) {
 		verticalDirection = "down";
 	}
 	else if (y == player->getY() && !isIdle) {
@@ -92,10 +94,9 @@ void FireBat::setMovement() {
 }
 
 //Set the attack pattern for FireBats
-void FireBat::setAttack() {
+inline void FireBat::setAttack() {
 	if (isIdle && !isRest) {
 		isRest = true;
-		cout << x << " " << y << " ";
 		fireball = new FireBall(x, y + 12, direction);
 	}
 }
@@ -110,22 +111,24 @@ void FireBat::initSprite() {
 }
 
 //Set the movement pattern for fireballs
-void FireBall::setMovement() {
+inline void FireBall::setMovement() {
 	if (direction == "left") {
 		x = x - speed;
+		setSprite("left");
 	}
 	else if (direction == "right") {
 		x = x + speed;
+		setSprite("right");
 	}
 }
 
 //Initialize the sprites for fireballs
 void FireBall::initSprite() {
-	idleSprite.loadFromFile("Sprites/mob/fireball.png");
-	leftSprite1.loadFromFile("Sprites/mob/fireball.png");
-	leftSprite2.loadFromFile("Sprites/mob/fireball.png");
-	rightSprite1.loadFromFile("Sprites/mob/fireball.png");
-	rightSprite2.loadFromFile("Sprites/mob/fireball.png");
+	idleSprite.loadFromFile("Sprites/mob/fireball_left.png");
+	leftSprite1.loadFromFile("Sprites/mob/fireball_left.png");
+	leftSprite2.loadFromFile("Sprites/mob/fireball_left.png");
+	rightSprite1.loadFromFile("Sprites/mob/fireball_right.png");
+	rightSprite2.loadFromFile("Sprites/mob/fireball_right.png");
 }
 
 //Interfaces
