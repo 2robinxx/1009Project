@@ -19,6 +19,10 @@ void CollisionChecker::checkTileCollision(Player* player) {
 	int topRow = (player->getY() + 16) / 48;
 	int bottomRow = (player->getY() + 48) / 48;
 
+	if (leftCol < 0 || rightCol >= 16 || topRow < 0 || bottomRow >= 50) {
+		throw "Vector out of range";
+	}
+
 	//Check if tile is colliding the player's feet to prevent falling
 	if (tileManager->tiles[bottomRow][leftCol]->getCollision() == true || tileManager->tiles[bottomRow][rightCol]->getCollision() == true) {
 		player->setCollidingFeet(true);

@@ -71,6 +71,9 @@ void Player::setMovement() {
 		if (isCollidingFeet == false) {
 			y += verticalSpeed;
 			isFalling = true;
+			if (y > WORLD_HEIGHT) {
+				throw "Player exceeded map limit.";
+			}
 		}
 		else if (isCollidingFeet == true) {
 			isFalling = false;
@@ -81,6 +84,9 @@ void Player::setMovement() {
 	if (isJumping == true) {
 		if (y > jumpTo) {
 			y -= verticalSpeed;
+			if (y < 0) {
+				throw "Player exceeded map limit.";
+			}
 		}
 
 		if (y <= jumpTo || isCollidingHead == true) {
@@ -95,6 +101,9 @@ void Player::setMovement() {
 		setSprite("left");
 		if (isColliding == false) {
 			x = x - speed;
+			if (x < 0) {
+				throw "Player exceeded map limit.";
+			}
 		}
 		slideLeftTimer = 0;
 		slideRightTimer = 0;
@@ -104,6 +113,9 @@ void Player::setMovement() {
 		setSprite("right");
 		if (isColliding == false) {
 			x = x + speed;
+			if (x > WORLD_WIDTH) {
+				throw "Player exceeded map limit.";
+			}
 		}
 		slideLeftTimer = 0;
 		slideRightTimer = 0;

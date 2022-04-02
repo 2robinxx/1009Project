@@ -42,6 +42,7 @@ public:
 	//Interfaces
 	sf::RectangleShape getSprite();
 	void setPosition();
+	void setPosition(float, float);
 	void setX(float);
 	float getX();
 	void setY(float);

@@ -64,6 +64,12 @@ void Entity::setPosition() {
 	sprite.setPosition(x, y);
 }
 
+void Entity::setPosition(float x, float y) {
+	this->x = x;
+	this->y = y;
+	sprite.setPosition(x, y);
+}
+
 void Entity::setX(float x) {
 	this->x = x;
 }

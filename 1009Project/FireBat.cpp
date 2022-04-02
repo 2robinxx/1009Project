@@ -87,9 +87,15 @@ void FireBat::setMovement() {
 
 	if (verticalDirection == "down" && !isIdle) {
 		y += verticalSpeed;
+		if (y > WORLD_HEIGHT) {
+			throw "FireBat exceeded map limit.";
+		}
 	}
 	else if (verticalDirection == "up" && !isIdle) {
 		y -= verticalSpeed;
+		if (y < 0) {
+			throw "FireBat exceeded map limit.";
+		}
 	}
 }
 

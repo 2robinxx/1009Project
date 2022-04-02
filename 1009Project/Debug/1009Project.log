@@ -1,48 +1,29 @@
-﻿  FireBat.cpp
-  CollisionChecker.cpp
+﻿  CollisionChecker.cpp
 C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(17,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(18,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(19,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(20,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(39,63): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(40,66): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(50,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(61,62): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(73,55): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(74,61): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(75,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(76,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(98,55): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(99,61): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(100,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(101,42): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(43,63): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(44,66): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(54,56): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(65,62): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(77,55): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(78,61): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(79,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(80,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(102,55): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(103,61): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(104,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\CollisionChecker.cpp(105,42): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   GamePanel.cpp
 C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\EndScreen.h(3,1): warning C4005: 'itemSelection': macro redefinition
 C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\Menu.h(4): message : see previous definition of 'itemSelection'
 C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(26,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(60,38): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(249,26): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(253,24): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(256,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(351,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(352,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Main.cpp
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\EndScreen.h(3,1): warning C4005: 'itemSelection': macro redefinition
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\Menu.h(4): message : see previous definition of 'itemSelection'
-  Player.cpp
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\Player.cpp(114,15): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Health.cpp
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\EndScreen.h(3,1): warning C4005: 'itemSelection': macro redefinition
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\Menu.h(4): message : see previous definition of 'itemSelection'
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\Health.cpp(15,36): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\Health.cpp(15,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(279,26): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(283,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(286,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(381,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(382,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   Generating Code...
   1009Project.vcxproj -> C:\Users\Soh Wen Yue\source\repos\1009Project\Debug\1009Project.exe

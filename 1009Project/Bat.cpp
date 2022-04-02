@@ -47,17 +47,29 @@ void Bat::setMovement() {
 	if (direction == "left") {
 		x -= speed;
 		setSprite("left");
+		if (x < 0) {
+			throw "Bat exceeded map limit.";
+		}
 	}
 	else if (direction == "right") {
 		x += speed;
 		setSprite("right");
+		if (x > WORLD_WIDTH) {
+			throw "Bat exceeded map limit.";
+		}
 	}
 
 	if (verticalDirection == "down") {
 		y += verticalSpeed;
+		if (y > WORLD_HEIGHT) {
+			throw "Bat exceeded map limit.";
+		}
 	}
 	else if (verticalDirection == "up") {
 		y -= verticalSpeed;
+		if (y < 0) {
+			throw "Bat exceeded map limit.";
+		}
 	}
 }
 

@@ -36,7 +36,7 @@ void GamePanel::initWindow() {
 	videoMode.width = 768;
 
 	//Setting the camera view for the game
-	mainMapView.setSize(768.f, 700.f);
+	mainMapView.setSize(768.f, 960.f);
 
 	window = new sf::RenderWindow(videoMode, "Dino Jump", sf::Style::Close | sf::Style::Titlebar);
 	window->setFramerateLimit(60);
@@ -121,8 +121,13 @@ void GamePanel::update() {
 	}
 	else if (screen == "play") {
 
-		collisionChecker.checkTileCollision(&player1);
-		collisionChecker.checkTileCollision(&player2);
+		try {
+			collisionChecker.checkTileCollision(&player1);
+			collisionChecker.checkTileCollision(&player2);
+		}
+		catch (const char * msg) {
+			cout << msg << endl;
+		}
 
 		collisionChecker.checkMobCollision(player1, bat);
 		collisionChecker.checkMobCollision(player2, bat);
@@ -134,20 +139,45 @@ void GamePanel::update() {
 			collisionChecker.checkFireCollision(&player2, firebat2.getFireball());
 		}
 
-		player1.setMovement();
-		player2.setMovement();
+		try {
+			player1.setMovement();
+			player1.setPosition();
 
-		player1.setPosition();
-		player2.setPosition();
+			player2.setMovement();
+			player2.setPosition();
+		}
+		catch (const char* msg) {
+			cout << msg << endl;
+			player1.setPosition(300.f, 400.f);
+			player2.setPosition(400.f, 400.f);
+		}
 
-		bat.setMovement();
-		bat.setPosition();
+		try {
+			bat.setMovement();
+			bat.setPosition();
+		}
+		catch (const char* msg) {
+			cout << msg << endl;
+			bat.setPosition(0, 0);
+		}
 
-		firebat1.setMovement();
-		firebat1.setPosition();
+		try {
+			firebat1.setMovement();
+			firebat1.setPosition();
+		}
+		catch (const char* msg) {
+			cout << msg << endl;
+			firebat1.setPosition(0, 0);
+		}
 
-		firebat2.setMovement();
-		firebat2.setPosition();
+		try {
+			firebat2.setMovement();
+			firebat2.setPosition();
+		}
+		catch (const char* msg) {
+			cout << msg << endl;
+			firebat2.setPosition(WORLD_WIDTH - 48, 0);
+		}
 
 		this->spawnObj();
 		this->objCollision();
@@ -376,12 +406,12 @@ inline int GamePanel::checkGoal() {
 //Check if player died
 inline int GamePanel::checkDeath() {
 
-	if (player1 >= this->player2.getY() + (48 * 18) || player1.getHealth() == 0) {
+	if (player1 >= this->player2.getY() + (48 * 10) || player1.getHealth() == 0) {
 		cout << "Player 1 died" << endl;
 		endscreen.playerwon = 2;
 		return 1;
 	}
-	if (player2 >= this->player1.getY() + (48 * 18) || player2.getHealth() == 0) {
+	if (player2 >= this->player1.getY() + (48 * 10) || player2.getHealth() == 0) {
 		cout << "Player 2 died" << endl;
 		endscreen.playerwon = 1;
 		return 2;
