@@ -10,7 +10,8 @@ enum objectType {DEFAULT = 0, DAMAGING, HEALING, NOFT};
 class Object
 {
 private:
-	sf::CircleShape sprite;
+	sf::RectangleShape sprite;
+	sf::Texture imgSprite;
 	int type;
 
 	
@@ -19,7 +20,7 @@ public:
 	virtual ~Object();
 
 	//Accessor
-	const sf::CircleShape getObject() const;
+	const sf::RectangleShape getObject() const;
 	const int& getType() const;
 
 

@@ -4,31 +4,25 @@
 
 void Object::initObject(const sf::RenderWindow& window)
 {
-	this->sprite.setRadius(20);
-	sf::Color color;
+
+
+	this->sprite = sf::RectangleShape(sf::Vector2f(50, 50));
+	sf::Texture* texture = new sf::Texture();
 	switch (this->type)
 	{
 		case DEFAULT:
-			color = sf::Color::Blue;
+			texture->loadFromFile("Sprites/object/boots.png");
 			break;
 		case DAMAGING:
-			color = sf::Color::Red;
+			texture->loadFromFile("Sprites/object/sword_normal.png");
 			break;
 		case HEALING:
-			color = sf::Color::Green;
+			texture->loadFromFile("Sprites/object/heart_full.png");
 			break;
 
 	}
 	
-	this->sprite.setFillColor(color);
-	this->sprite.setOutlineColor(sf::Color::Black);
-	this->sprite.setOutlineThickness(5);
-	//sf::Texture objImg;
-	//objImg.loadFromFile("Sprites/object/boots.png");
-	//this->sprite.setTexture(&objImg);
-	//this->sprite.setTextureRect(sf::IntRect(10, 10, 100, 100));
-
-
+	this->sprite.setTexture(texture);
 	this->sprite.setPosition(
 		sf::Vector2f(
 			static_cast<float>((rand() % window.getSize().x) - this->sprite.getGlobalBounds().width),
@@ -37,12 +31,14 @@ void Object::initObject(const sf::RenderWindow& window)
 
 }
 
-
+//Constructor
 Object::Object(const sf::RenderWindow& window , int type)
 	:type(type)
 {
 	
 	this->initObject(window);
+
+
 }
 
 Object::~Object()
@@ -50,7 +46,7 @@ Object::~Object()
 	
 }
 
-const sf::CircleShape Object::getObject() const
+const sf::RectangleShape Object::getObject() const
 {
 	return this->sprite;
 }
@@ -68,6 +64,7 @@ void Object::render(sf::RenderTarget& target)
 {
 	target.draw(this->sprite);
 }
+
 
 
 
