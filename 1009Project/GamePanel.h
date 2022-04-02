@@ -12,6 +12,7 @@
 #include "Menu.h"
 #include "EndScreen.h"
 #include "FireBat.h"
+#include "highscore.h"
 
 #ifndef GRID_HEIGHT
 	#define GRID_HEIGHT 50
@@ -59,6 +60,7 @@ private:
 	Health health;
 	Menu menu;
 	EndScreen endscreen;
+	highscore hs;
 
 	//Functions
 	void initVariables();

@@ -1,2 +1,16 @@
-﻿  Object.cpp
-  1009Project.vcxproj -> C:\Users\chows\Desktop\1009Project\Debug\1009Project.exe
+﻿  GamePanel.cpp
+C:\Users\v_vis\Desktop\1009 C++ assignment\1009Project\EndScreen.h(3,1): warning C4005: 'itemSelection': macro redefinition
+C:\Users\v_vis\Desktop\1009 C++ assignment\1009Project\Menu.h(4): message : see previous definition of 'itemSelection'
+C:\Users\v_vis\Desktop\1009 C++ assignment\1009Project\GamePanel.cpp(26,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\v_vis\Desktop\1009 C++ assignment\1009Project\GamePanel.cpp(60,38): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\v_vis\Desktop\1009 C++ assignment\1009Project\GamePanel.cpp(281,23): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\v_vis\Desktop\1009 C++ assignment\1009Project\GamePanel.cpp(285,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\v_vis\Desktop\1009 C++ assignment\1009Project\GamePanel.cpp(288,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\v_vis\Desktop\1009 C++ assignment\1009Project\GamePanel.cpp(383,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\v_vis\Desktop\1009 C++ assignment\1009Project\GamePanel.cpp(384,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Main.cpp
+C:\Users\v_vis\Desktop\1009 C++ assignment\1009Project\EndScreen.h(3,1): warning C4005: 'itemSelection': macro redefinition
+C:\Users\v_vis\Desktop\1009 C++ assignment\1009Project\Menu.h(4): message : see previous definition of 'itemSelection'
+C:\Users\v_vis\Desktop\1009 C++ assignment\1009Project\Main.cpp(9,15): warning C4101: 'hs': unreferenced local variable
+  Generating Code...
+  1009Project.vcxproj -> C:\Users\v_vis\Desktop\1009 C++ assignment\Debug\1009Project.exe
