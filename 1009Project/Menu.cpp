@@ -53,6 +53,20 @@ void Menu::draw(sf::RenderTarget& target, int height, int width)
     option[1].setString("Quit");
     option[1].setPosition(sf::Vector2f(width / 2.f, height / (itemSelection + 1) + 100));
 
+    //Menu 3
+    option[2].setFont(font);
+    if (selectedItemIndex == 2)
+    {
+        option[2].setFillColor(sf::Color::Red);
+    }
+    else
+    {
+        option[2].setFillColor(sf::Color::White);
+    }
+
+    option[2].setString("Select Map");
+    option[2].setPosition(sf::Vector2f(width / 2.f, height / (itemSelection + 1) + 200));
+
     for (int i = 0; i < itemSelection; i++)
     {
 

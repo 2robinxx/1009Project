@@ -1,7 +1,7 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 
-#define itemSelection 2
+#define itemSelection 3
 
 class Menu
 {

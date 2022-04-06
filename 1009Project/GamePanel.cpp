@@ -2,7 +2,7 @@
 
 
 //Constructor/Destructor
-GamePanel::GamePanel() : player1(1), player2(2), bat(48.f, 48.f), firebat1(48.f, 48.f, &player1), firebat2(48.f, 48.f, (WORLD_WIDTH - 48), 0, &player2), tileManager("Sprites/maps/map01.txt"), collisionChecker(&tileManager){
+GamePanel::GamePanel() : player1(1), player2(2), bat(48.f, 48.f), firebat1(48.f, 48.f, &player1), firebat2(48.f, 48.f, (WORLD_WIDTH - 48), 0, &player2), tileManager("Sprites/maps/map01.txt"), tileManager1("Sprites/maps/map02.txt"), collisionChecker(&tileManager) {
 	
 	initVariables();
 	initWindow();
@@ -77,6 +77,12 @@ void GamePanel::pollEvents() {
 					endscreen.toggleMenu();
 					break;
 				}
+				if (screen == "mapSelection" && (ev.key.code == sf::Keyboard::Up || ev.key.code == sf::Keyboard::Down || ev.key.code == sf::Keyboard::Enter)) {
+
+					mapSelection.toggleMenu();
+					break;
+				}
+
 				break;
 			case sf::Event::Closed:
 				window->close();
@@ -101,6 +107,21 @@ void GamePanel::update() {
 
 			//Close window
 			window->close();
+		}
+		//Map selection option
+		else if (menu.selectedItemIndex == 2 && menu.enterPressKey == 1) {
+
+			screen = "mapSelection";
+		}
+	}
+	if (screen == "mapSelection") {
+		// Underground Map
+		if (mapSelection.selectedItemIndex == 0 && mapSelection.enterPressKey == 1) {
+			screen = "play";
+		}
+		// Ice Map
+		else if (mapSelection.selectedItemIndex == 1 && mapSelection.enterPressKey == 1) {
+			screen = "play";
 		}
 	}
 	if (screen == "end") {
@@ -229,7 +250,14 @@ void GamePanel::render() {
 		hs.readScore();
 		window->display();
 	}
-	else  if (screen == "play") {
+	if (this->screen == "mapSelection") {
+
+		//draw map selection screen
+		window->clear();
+		mapSelection.draw(*window, window->getSize().x, window->getSize().y);
+		window->display();
+	}
+	else if (screen == "play") {
 
 		window->clear();
 
@@ -271,7 +299,15 @@ void GamePanel::render() {
 void GamePanel::renderMap() {
 	for (int i = 0; i < GRID_HEIGHT; i++) {
 		for (int j = 0; j < GRID_WIDTH; j++) {
-			window->draw(tileManager.tiles[i][j]->getSprite());
+			if (mapSelection.selectedItemIndex == 1 && mapSelection.enterPressKey == 1)
+			{
+				window->draw(tileManager1.tiles[i][j]->getSprite());
+			}
+			else
+			{
+				window->draw(tileManager.tiles[i][j]->getSprite());
+			}
+			
 		}
 	}
 }

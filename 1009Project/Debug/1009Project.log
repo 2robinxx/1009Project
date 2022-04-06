@@ -1,2 +1,9 @@
-﻿  highscore.cpp
-  1009Project.vcxproj -> C:\Users\v_vis\Desktop\1009 C++ assignment\Debug\1009Project.exe
+﻿  GamePanel.cpp
+C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(26,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(60,38): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(321,23): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(325,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(328,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(423,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(424,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  1009Project.vcxproj -> C:\Users\chows\Desktop\1009Project\Debug\1009Project.exe

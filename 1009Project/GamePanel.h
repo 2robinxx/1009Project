@@ -11,6 +11,7 @@
 #include "Object.h"
 #include "Menu.h"
 #include "EndScreen.h"
+#include "MapSelection.h"
 #include "FireBat.h"
 #include "highscore.h"
 
@@ -61,6 +62,7 @@ private:
 	Health health;
 	Menu menu;
 	EndScreen endscreen;
+	MapSelection mapSelection;
 	highscore hs;
 
 	//Functions
@@ -72,6 +74,7 @@ private:
 public:
 	//Objects
 	TileManager tileManager;
+	TileManager tileManager1;
 	CollisionChecker collisionChecker;
 
 	//Constructor/Destructor
