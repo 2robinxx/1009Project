@@ -43,7 +43,8 @@ void MapSelection::draw(sf::RenderTarget& target, int height, int width)
         option[0].setFillColor(sf::Color::White);
     }
     option[0].setString("Underground");
-    option[0].setPosition(sf::Vector2f((width / 3.f) - 35, height / (itemSelection + 1) + 300));
+    option[0].setCharacterSize(50);
+    option[0].setPosition(sf::Vector2f((width / 3.f) - 90, height / (itemSelection + 1) + 300));
 
     //Menu 2
     option[1].setFont(font);
@@ -56,6 +57,7 @@ void MapSelection::draw(sf::RenderTarget& target, int height, int width)
         option[1].setFillColor(sf::Color::White);
     }
     option[1].setString("Ice");
+    option[1].setCharacterSize(50);
     option[1].setPosition(sf::Vector2f((width / 3.f) + 20, height / (itemSelection + 1) + 400));
 
     for (int i = 0; i < itemSelection; i++)

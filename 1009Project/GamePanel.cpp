@@ -241,7 +241,8 @@ void GamePanel::render() {
 	}
 	if (this->screen == "end") {
 
-		window->clear();
+		sf::Color color(0, 153, 51);//bg color
+		window->clear(color);
 		endscreen.draw(*window, window->getSize().x, window->getSize().y);
 		if (score == 0) {
 			hs.addFile();

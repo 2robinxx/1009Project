@@ -25,14 +25,17 @@ void EndScreen::draw(sf::RenderTarget& target, int height, int width)
         statement.setFont(font);
         statement.setFillColor(sf::Color::White);
         statement.setString("Player 1 win");
-        statement.setPosition(sf::Vector2f(width / 2.f, height / ((itemSelection + 1) + 0)));
+        statement.setCharacterSize(80);
+        statement.setPosition(sf::Vector2f(140.f, 70.f));
+       
     }
     else if (playerwon == 2) {
 
         statement.setFont(font);
         statement.setFillColor(sf::Color::White);
         statement.setString("Player 2 win");
-        statement.setPosition(sf::Vector2f(width / 2.f, height / ((itemSelection + 1) + 0)));
+        statement.setCharacterSize(80);
+        statement.setPosition(sf::Vector2f(140.f, 70.f));
     
     }
     
@@ -52,7 +55,8 @@ void EndScreen::draw(sf::RenderTarget& target, int height, int width)
 
     option[0].setString("Play Again");
     //option[0].setPosition(sf::Vector2f(width / 2, height / (itemSelection + 1) * 1));
-    option[0].setPosition(sf::Vector2f(width / 2.f, height / (itemSelection + 1)+100));
+    option[0].setCharacterSize(50);
+    option[0].setPosition(sf::Vector2f((width / 3.f)-70, height / (itemSelection + 1) + 300));
 
 
 
@@ -68,7 +72,8 @@ void EndScreen::draw(sf::RenderTarget& target, int height, int width)
     }
 
     option[1].setString("Quit");
-    option[1].setPosition(sf::Vector2f(width / 2.f, height / (itemSelection + 1) + 200));
+    option[1].setCharacterSize(50);
+    option[1].setPosition(sf::Vector2f((width / 3.f), height / (itemSelection + 1) + 400));
 
     
 
@@ -84,7 +89,8 @@ void EndScreen::draw(sf::RenderTarget& target, int height, int width)
     }
 
     option[2].setString("Highscores");
-    option[2].setPosition(sf::Vector2f(width / 2.f, height / (itemSelection + 1) + 300));
+    option[2].setCharacterSize(50);
+    option[2].setPosition(sf::Vector2f((width / 3.f)-70, height / (itemSelection + 1) + 500));
 
     target.draw(statement);
 
