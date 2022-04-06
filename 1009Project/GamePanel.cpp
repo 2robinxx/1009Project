@@ -58,6 +58,8 @@ void GamePanel::initText()
 	this->guiSpeedText.setFont(this->font);
 	this->guiSpeedText.setFillColor(sf::Color::White);
 	this->guiSpeedText.setCharacterSize(30.f);
+	this->guiSpeedText.setStyle(sf::Text::Bold);
+	this->guiSpeedText.setPosition(sf::Vector2f(40,50));
 }
 
 //Set the ability to operate the game menus and the application.
@@ -289,9 +291,9 @@ void GamePanel::render() {
 
 		//Drawing on UI view
 		window->setView(UI);
-		drawHearts();
-
+		
 		this->drawSpeedGUI(window);
+		drawHearts();
 
 		window->display();
 
@@ -399,37 +401,46 @@ inline void GamePanel::playBackgroundMusic() {
 
 //Draw player hearts onto the screen
 void GamePanel::drawHearts() {
-	int subsetHeartP1 = 100;
+	int subsetHeartP1 = 60;
 	for (int i = 0; i < player1.getHealth(); i++) {
 		window->draw(health.loadTexture(subsetHeartP1, 100));
-		subsetHeartP1 += 20;
+		subsetHeartP1 += 70;
 	}
 
-	int subsetHeartP2 = 850;
+	int subsetHeartP2 = 750;
 	for (int i = 0; i < player2.getHealth(); i++) {
 		window->draw(health.loadTexture(subsetHeartP2, 100));
-		subsetHeartP2 += 20;
+		subsetHeartP2 += 70;
 	}
 }
 
 //Draw player speed onto the screen
 inline void GamePanel::drawSpeedGUI(sf::RenderTarget* target)
 {
+	
+	sf::FloatRect bgRect = guiSpeedText.getGlobalBounds();
+	sf::RectangleShape background(sf::Vector2f(bgRect.width + 20, bgRect.height + 60));
+	sf::Color color(4, 20, 46, 150);
+	background.setFillColor(color);
+	background.setOutlineColor(sf::Color::Black);
+	background.setOutlineThickness(5);
+
+	target->draw(background, guiSpeedText.getTransform());
 	target->draw(this->guiSpeedText);
 }
 
 //Update player speed UI
 void GamePanel::updateSpeedGUI()
 {
-	int p1speed;
-	int p2speed;
-
-	p1speed = player1.getSpeed();
-	p2speed = player2.getSpeed();
+	
+	int p1speed = player1.getSpeed();
+	int p2speed = player2.getSpeed();
 
 	stringstream ss;
-	ss << " Player 1 speed: " << p1speed << "\t\t\t\t\t\t\t\t" << "Player 2 speed:  " << p2speed;
+	ss << " P1 Speed: " << p1speed << "\t\t-----STATUS----\t\t" << "P2 Speed: " << p2speed;
 	this->guiSpeedText.setString(ss.str());
+
+	
 }
 
 //Check if player reached the goal

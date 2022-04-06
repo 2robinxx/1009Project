@@ -17,16 +17,22 @@ void Object::initObject(const sf::RenderWindow& window)
 			texture->loadFromFile("Sprites/object/sword_normal.png");
 			break;
 		case HEALING:
-			texture->loadFromFile("Sprites/object/heart_full.png");
+			texture->loadFromFile("Sprites/object/potion.png");
 			break;
 
 	}
+
+	int windowX = window.getSize().x;
+	int windowY= window.getSize().y;
+	int spriteW = this->sprite.getGlobalBounds().width;
+	int spriteH = this->sprite.getGlobalBounds().height;
+
 	
 	this->sprite.setTexture(texture);
 	this->sprite.setPosition(
 		sf::Vector2f(
-			static_cast<float>((rand() % window.getSize().x) - this->sprite.getGlobalBounds().width),
-			static_cast<float>((rand() % window.getSize().y) - this->sprite.getGlobalBounds().height)
+			static_cast<float>((rand() % (windowX- 2*spriteW))),
+			static_cast<float>((rand() % (windowY- 2*spriteH)))
 		));
 
 }

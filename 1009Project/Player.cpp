@@ -5,7 +5,7 @@ Player::Player(int player) {
 	if (player == 1) {
 		initSprite(1);
 		x = 300.f;
-		y = 400.f;
+		y = 400.f; //2000.f close to btm
 		leftKeyPressed = sf::Keyboard::Key::A;
 		rightKeyPressed = sf::Keyboard::Key::D;
 		jumpKeyPressed = sf::Keyboard::Key::W;
@@ -14,7 +14,7 @@ Player::Player(int player) {
 	else if (player == 2) {
 		initSprite(2);
 		x = 400.f;
-		y = 400.f;
+		y =400.f;
 		leftKeyPressed = sf::Keyboard::Key::J;
 		rightKeyPressed = sf::Keyboard::Key::L;
 		jumpKeyPressed = sf::Keyboard::Key::I;
@@ -182,7 +182,7 @@ void Player::gainHealth()
 //Increase player health
 void Player::gainHealth(int h)
 {
-	if (health > 3)
+	if (health >= 3)
 	{
 		health = 3;
 	}

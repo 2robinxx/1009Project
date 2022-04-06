@@ -13,6 +13,7 @@ sf::Sprite& Health::loadTexture(int x, int y) {
 
 	heart.setTexture(texture);
 	heart.setPosition(sf::Vector2f(x, y));
+	heart.setScale(sf::Vector2f(3, 2.5));
 
 	return(heart);
 }

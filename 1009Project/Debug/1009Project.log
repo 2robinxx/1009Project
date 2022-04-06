@@ -1,37 +1,11 @@
-﻿  EndScreen.cpp
-C:\Users\chows\Desktop\1009Project\1009Project\EndScreen.cpp(59,87): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\chows\Desktop\1009Project\1009Project\EndScreen.cpp(76,84): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\chows\Desktop\1009Project\1009Project\EndScreen.cpp(93,87): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-  Menu.cpp
-C:\Users\chows\Desktop\1009Project\1009Project\Menu.cpp(22,38): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-C:\Users\chows\Desktop\1009Project\1009Project\Menu.cpp(65,83): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\chows\Desktop\1009Project\1009Project\Menu.cpp(80,87): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\chows\Desktop\1009Project\1009Project\Menu.cpp(97,84): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-  Generating Code...
-C:\Users\chows\Desktop\1009Project\1009Project\Menu.cpp(153): warning C4715: 'Menu::toggleMenu': not all control paths return a value
-C:\Users\chows\Desktop\1009Project\1009Project\EndScreen.cpp(145): warning C4715: 'EndScreen::toggleMenu': not all control paths return a value
+﻿  GamePanel.cpp
+C:\Users\chows\Desktop\1009Project\1009Project\MapSelection.h(4,1): warning C4005: 'itemSelection': macro redefinition
+C:\Users\chows\Desktop\1009Project\1009Project\Menu.h(4): message : see previous definition of 'itemSelection'
+C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(26,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(60,38): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(327,23): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(331,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(334,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(436,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(437,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   1009Project.vcxproj -> C:\Users\chows\Desktop\1009Project\Debug\1009Project.exe
