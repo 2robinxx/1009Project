@@ -1,5 +1,7 @@
 #pragma once
-
+#include <iostream>
+#include <fstream>
+#include <algorithm>
 
 class highscore
 {

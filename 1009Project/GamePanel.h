@@ -49,6 +49,7 @@ private:
 	int spawnTimer;
 	int maxObjects;
 	double playtime = 0;
+	int score = 0;
 	string screen;
 
 	//Objects

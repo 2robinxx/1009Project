@@ -104,7 +104,7 @@ void GamePanel::update() {
 		}
 	}
 	if (screen == "end") {
-		hs.addFile();
+		
 		this->playtime += 0;
 		cout << "This game was played for: " << playtime << endl;
 
@@ -221,7 +221,11 @@ void GamePanel::render() {
 
 		window->clear();
 		endscreen.draw(*window, window->getSize().x, window->getSize().y);
-		hs.addScore(playtime);
+		if (score == 0) {
+			hs.addFile();
+			hs.addScore(playtime);
+			score = 1;
+		}
 		hs.readScore();
 		window->display();
 	}
