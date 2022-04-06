@@ -49,7 +49,7 @@ private:
 	float spawnTimerMax;
 	int spawnTimer;
 	int maxObjects;
-	double playtime = 0;
+	
 	int score = 0;
 	string screen;
 
@@ -94,6 +94,7 @@ public:
 	void updateSpeedGUI();
 	inline int checkGoal();
 	inline int checkDeath();
+	double playtime = 0;
 
 	//Interfaces
 	const bool getWindowIsOpen();

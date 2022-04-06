@@ -9,7 +9,10 @@ private:
 	sf::Font font;
 	sf::Text option[itemSelection];
 	sf::Text statement;
-
+	sf::Texture gameIconImg;
+	sf::Sprite gameIconSprite;
+	sf::Texture gameIconImg2;
+	sf::Sprite gameIconSprite2;
 	sf::Keyboard::Key upPress, downPress, enterPress;
 
 

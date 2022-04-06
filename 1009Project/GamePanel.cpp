@@ -129,7 +129,7 @@ void GamePanel::update() {
 	if (screen == "end") {
 		
 		this->playtime += 0;
-		cout << "This game was played for: " << playtime << endl;
+		
 
 		// Play option
 		if (endscreen.selectedItemIndex == 0 && endscreen.enterPressKey == 1) {
@@ -247,11 +247,14 @@ void GamePanel::render() {
 		window->clear(color);
 		endscreen.draw(*window, window->getSize().x, window->getSize().y);
 		if (score == 0) {
+			cout << "This game was played for: " << playtime << endl;
 			hs.addFile();
 			hs.addScore(playtime);
+			hs.readScore();
+			hs.writeScore();
 			score = 1;
 		}
-		hs.readScore();
+		
 		window->display();
 	}
 	if (this->screen == "mapSelection") {

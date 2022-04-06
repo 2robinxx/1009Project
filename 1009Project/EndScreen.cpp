@@ -21,6 +21,10 @@ void EndScreen::draw(sf::RenderTarget& target, int height, int width)
     }
 
     if (playerwon == 1) {
+        this->gameIconImg.loadFromFile("Sprites/player/dino_idle.png");
+        this->gameIconSprite.setTexture(gameIconImg);
+        this->gameIconSprite.setScale(sf::Vector2f(8, 8));
+        this->gameIconSprite.setPosition(sf::Vector2f(325.f, 250));
 
         statement.setFont(font);
         statement.setFillColor(sf::Color::White);
@@ -30,6 +34,11 @@ void EndScreen::draw(sf::RenderTarget& target, int height, int width)
        
     }
     else if (playerwon == 2) {
+
+        this->gameIconImg.loadFromFile("Sprites/player/dino2_idle.png");
+        this->gameIconSprite.setTexture(gameIconImg);
+        this->gameIconSprite.setScale(sf::Vector2f(8, 8));
+        this->gameIconSprite.setPosition(sf::Vector2f(325.f, 250));
 
         statement.setFont(font);
         statement.setFillColor(sf::Color::White);
@@ -93,6 +102,8 @@ void EndScreen::draw(sf::RenderTarget& target, int height, int width)
     option[2].setPosition(sf::Vector2f((width / 3.f)-70, height / (itemSelection + 1) + 500));
 
     target.draw(statement);
+    target.draw(gameIconSprite);
+    target.draw(gameIconSprite2);
 
     for (int i = 0; i < itemSelection; i++)
     {

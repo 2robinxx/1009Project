@@ -10,5 +10,6 @@ public:
 	void addFile();
 	void addScore(double);
 	void readScore();
+	void writeScore();
 };
 
