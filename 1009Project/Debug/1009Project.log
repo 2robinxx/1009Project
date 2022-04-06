@@ -1,9 +1,19 @@
-﻿  GamePanel.cpp
-C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(26,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(60,38): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(321,23): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(325,24): warning C4018: '<': signed/unsigned mismatch
-C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(328,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(423,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(424,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+﻿  Menu.cpp
+C:\Users\chows\Desktop\1009Project\1009Project\Menu.cpp(22,38): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\chows\Desktop\1009Project\1009Project\Menu.cpp(64,88): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\chows\Desktop\1009Project\1009Project\Menu.cpp(80,89): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\chows\Desktop\1009Project\1009Project\Menu.cpp(94,89): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\chows\Desktop\1009Project\1009Project\Menu.cpp(146): warning C4715: 'Menu::toggleMenu': not all control paths return a value
   1009Project.vcxproj -> C:\Users\chows\Desktop\1009Project\Debug\1009Project.exe

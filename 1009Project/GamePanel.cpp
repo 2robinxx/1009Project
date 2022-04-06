@@ -233,8 +233,9 @@ void GamePanel::update() {
 void GamePanel::render() {
 
 	if (this->screen == "menu") {
-
-		window->clear();
+		sf::Color color(0, 153, 51);//bg color
+		window->clear(color);
+		menu.drawTitle(*window);
 		menu.draw(*window, window->getSize().x, window->getSize().y);
 		window->display();
 	}

@@ -10,8 +10,33 @@ Menu::Menu()
     upPress = sf::Keyboard::Key::Up;
     downPress = sf::Keyboard::Key::Down;
     enterPress = sf::Keyboard::Key::Enter;
-}
 
+ 
+}
+void Menu::drawTitle(sf::RenderTarget& target)
+{
+    this->font.loadFromFile("Fonts/game_sans_serif_7.ttf");
+    this->gameTitle.setString("Dino Jump");
+    this->gameTitle.setFont(this->font);
+    this->gameTitle.setFillColor(sf::Color::White);
+    this->gameTitle.setCharacterSize(100.f);
+    this->gameTitle.setPosition(sf::Vector2f(120.f,60.f));
+
+    this->gameIconImg.loadFromFile("Sprites/player/dino_idle.png");
+    this->gameIconSprite.setTexture(gameIconImg);
+    this->gameIconSprite.setScale(sf::Vector2f(7, 7));
+    this->gameIconSprite.setPosition(sf::Vector2f(250.f, 250));
+
+    this->gameIconImg2.loadFromFile("Sprites/player/dino2_idle.png");
+    this->gameIconSprite2.setTexture(gameIconImg2);
+    this->gameIconSprite2.setScale(sf::Vector2f(7, 7));
+    this->gameIconSprite2.setPosition(sf::Vector2f(400.f, 250));
+   
+    target.draw(gameTitle);
+    target.draw(gameIconSprite);
+    target.draw(gameIconSprite2);
+
+}
 void Menu::draw(sf::RenderTarget& target, int height, int width)
 {
 
@@ -20,6 +45,7 @@ void Menu::draw(sf::RenderTarget& target, int height, int width)
 
         // error handling if file not loaded
     }
+
 
     //Menu 1
     option[0].setFont(font);
@@ -35,7 +61,7 @@ void Menu::draw(sf::RenderTarget& target, int height, int width)
 
     option[0].setString("Play");
     //option[0].setPosition(sf::Vector2f(width / 2, height / (itemSelection + 1) * 1));
-    option[0].setPosition(sf::Vector2f(width / 2.f, height / (itemSelection + 1)));
+    option[0].setPosition(sf::Vector2f((width / 3.f) + 20, height / (itemSelection + 1)+300));
 
 
 
@@ -51,7 +77,7 @@ void Menu::draw(sf::RenderTarget& target, int height, int width)
     }
 
     option[1].setString("Quit");
-    option[1].setPosition(sf::Vector2f(width / 2.f, height / (itemSelection + 1) + 100));
+    option[1].setPosition(sf::Vector2f((width / 3.f) + 20, height / (itemSelection + 1) + 400));
 
     //Menu 3
     option[2].setFont(font);
@@ -65,7 +91,7 @@ void Menu::draw(sf::RenderTarget& target, int height, int width)
     }
 
     option[2].setString("Select Map");
-    option[2].setPosition(sf::Vector2f(width / 2.f, height / (itemSelection + 1) + 200));
+    option[2].setPosition(sf::Vector2f((width / 3.f) - 20, height / (itemSelection + 1) + 500));
 
     for (int i = 0; i < itemSelection; i++)
     {
