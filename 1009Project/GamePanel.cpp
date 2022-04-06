@@ -103,13 +103,13 @@ void GamePanel::update() {
 			screen = "play";
 		}
 		//Quit option
-		else if (menu.selectedItemIndex == 1 && menu.enterPressKey == 1) {
+		else if (menu.selectedItemIndex == 2 && menu.enterPressKey == 1) {
 
 			//Close window
 			window->close();
 		}
 		//Map selection option
-		else if (menu.selectedItemIndex == 2 && menu.enterPressKey == 1) {
+		else if (menu.selectedItemIndex == 1 && menu.enterPressKey == 1) {
 
 			screen = "mapSelection";
 		}
@@ -254,7 +254,9 @@ void GamePanel::render() {
 	if (this->screen == "mapSelection") {
 
 		//draw map selection screen
-		window->clear();
+		sf::Color color(0, 153, 51);//bg color
+		window->clear(color);
+		mapSelection.drawTitle(*window);
 		mapSelection.draw(*window, window->getSize().x, window->getSize().y);
 		window->display();
 	}

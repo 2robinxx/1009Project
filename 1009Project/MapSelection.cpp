@@ -11,6 +11,18 @@ MapSelection::MapSelection()
     downPress = sf::Keyboard::Key::Down;
     enterPress = sf::Keyboard::Key::Enter;
 }
+void MapSelection::drawTitle(sf::RenderTarget& target)
+{
+    this->font.loadFromFile("Fonts/game_sans_serif_7.ttf");
+    this->pageTitle.setString("Select Map");
+    this->pageTitle.setFont(this->font);
+    this->pageTitle.setFillColor(sf::Color::White);
+    this->pageTitle.setCharacterSize(100.f);
+    this->pageTitle.setPosition(sf::Vector2f(120.f, 60.f));
+
+    target.draw(pageTitle);
+  
+}
 
 void MapSelection::draw(sf::RenderTarget& target, int height, int width)
 {
@@ -31,7 +43,7 @@ void MapSelection::draw(sf::RenderTarget& target, int height, int width)
         option[0].setFillColor(sf::Color::White);
     }
     option[0].setString("Underground");
-    option[0].setPosition(sf::Vector2f(width / 2.f, height / (itemSelection + 1)));
+    option[0].setPosition(sf::Vector2f((width / 3.f) - 35, height / (itemSelection + 1) + 300));
 
     //Menu 2
     option[1].setFont(font);
@@ -44,7 +56,7 @@ void MapSelection::draw(sf::RenderTarget& target, int height, int width)
         option[1].setFillColor(sf::Color::White);
     }
     option[1].setString("Ice");
-    option[1].setPosition(sf::Vector2f(width / 2.f, height / (itemSelection + 1) + 100));
+    option[1].setPosition(sf::Vector2f((width / 3.f) + 20, height / (itemSelection + 1) + 400));
 
     for (int i = 0; i < itemSelection; i++)
     {

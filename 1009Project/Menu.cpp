@@ -63,25 +63,9 @@ void Menu::draw(sf::RenderTarget& target, int height, int width)
     //option[0].setPosition(sf::Vector2f(width / 2, height / (itemSelection + 1) * 1));
     option[0].setPosition(sf::Vector2f((width / 3.f) + 20, height / (itemSelection + 1)+300));
 
-
-
     //Menu 2
-    option[1].setFont(font);
-    if (selectedItemIndex == 1)
-    {
-        option[1].setFillColor(sf::Color::Red);
-    }
-    else
-    {
-        option[1].setFillColor(sf::Color::White);
-    }
-
-    option[1].setString("Quit");
-    option[1].setPosition(sf::Vector2f((width / 3.f) + 20, height / (itemSelection + 1) + 400));
-
-    //Menu 3
     option[2].setFont(font);
-    if (selectedItemIndex == 2)
+    if (selectedItemIndex == 1)
     {
         option[2].setFillColor(sf::Color::Red);
     }
@@ -91,7 +75,27 @@ void Menu::draw(sf::RenderTarget& target, int height, int width)
     }
 
     option[2].setString("Select Map");
-    option[2].setPosition(sf::Vector2f((width / 3.f) - 20, height / (itemSelection + 1) + 500));
+    option[2].setPosition(sf::Vector2f((width / 3.f) - 20, height / (itemSelection + 1) + 400));
+
+
+
+    //Menu 3
+    option[1].setFont(font);
+    if (selectedItemIndex == 2)
+    {
+        option[1].setFillColor(sf::Color::Red);
+    }
+    else
+    {
+        option[1].setFillColor(sf::Color::White);
+    }
+
+    option[1].setString("Quit");
+    option[1].setPosition(sf::Vector2f((width / 3.f) + 20, height / (itemSelection + 1) + 500));
+
+   
+
+
 
     for (int i = 0; i < itemSelection; i++)
     {
