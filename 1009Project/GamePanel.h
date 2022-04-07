@@ -74,7 +74,6 @@ private:
 public:
 	//Objects
 	TileManager tileManager;
-	TileManager tileManager1;
 	CollisionChecker collisionChecker;
 
 	//Constructor/Destructor
@@ -86,6 +85,7 @@ public:
 	void update();
 	void render();
 	void renderMap();
+	void chooseMap();
 	void spawnObj();
 	void objCollision();
 	inline void playBackgroundMusic();

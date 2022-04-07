@@ -33,4 +33,5 @@ public:
 	//Functions
 	void readMapFromFile(string);
 	void setUpTiles();
+	void chooseMap(string);
 };

@@ -1,11 +1,27 @@
 ﻿  GamePanel.cpp
-C:\Users\chows\Desktop\1009Project\1009Project\MapSelection.h(4,1): warning C4005: 'itemSelection': macro redefinition
-C:\Users\chows\Desktop\1009Project\1009Project\Menu.h(4): message : see previous definition of 'itemSelection'
-C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(26,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(60,38): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(327,23): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(331,24): warning C4018: '<': signed/unsigned mismatch
-C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(334,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(436,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\chows\Desktop\1009Project\1009Project\GamePanel.cpp(437,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  1009Project.vcxproj -> C:\Users\chows\Desktop\1009Project\Debug\1009Project.exe
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\MapSelection.h(4,1): warning C4005: 'itemSelection': macro redefinition
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\Menu.h(4): message : see previous definition of 'itemSelection'
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(26,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(60,38): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(336,26): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(340,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(343,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(445,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\GamePanel.cpp(446,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  TileManager.cpp
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(51,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(51,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(54,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(54,54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(57,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(57,53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(60,61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(60,54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(63,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(63,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(66,65): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(66,58): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(69,64): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\TileManager.cpp(69,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+  1009Project.vcxproj -> C:\Users\Soh Wen Yue\source\repos\1009Project\Debug\1009Project.exe

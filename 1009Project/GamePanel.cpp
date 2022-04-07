@@ -2,7 +2,7 @@
 
 
 //Constructor/Destructor
-GamePanel::GamePanel() : player1(1), player2(2), bat(48.f, 48.f), firebat1(48.f, 48.f, &player1), firebat2(48.f, 48.f, (WORLD_WIDTH - 48), 0, &player2), tileManager("Sprites/maps/map01.txt"), tileManager1("Sprites/maps/map02.txt"), collisionChecker(&tileManager) {
+GamePanel::GamePanel() : player1(1), player2(2), bat(48.f, 48.f), firebat1(48.f, 48.f, &player1), firebat2(48.f, 48.f, (WORLD_WIDTH - 48), 0, &player2), tileManager("Sprites/maps/map01.txt"), collisionChecker(&tileManager) {
 	
 	initVariables();
 	initWindow();
@@ -119,10 +119,12 @@ void GamePanel::update() {
 	if (screen == "mapSelection") {
 		// Underground Map
 		if (mapSelection.selectedItemIndex == 0 && mapSelection.enterPressKey == 1) {
+			chooseMap();
 			screen = "play";
 		}
 		// Ice Map
 		else if (mapSelection.selectedItemIndex == 1 && mapSelection.enterPressKey == 1) {
+			chooseMap();
 			screen = "play";
 		}
 	}
@@ -308,16 +310,20 @@ void GamePanel::render() {
 void GamePanel::renderMap() {
 	for (int i = 0; i < GRID_HEIGHT; i++) {
 		for (int j = 0; j < GRID_WIDTH; j++) {
-			if (mapSelection.selectedItemIndex == 1 && mapSelection.enterPressKey == 1)
-			{
-				window->draw(tileManager1.tiles[i][j]->getSprite());
-			}
-			else
-			{
-				window->draw(tileManager.tiles[i][j]->getSprite());
-			}
-			
+			window->draw(tileManager.tiles[i][j]->getSprite());
 		}
+	}
+}
+
+//Choose which map to draw onto the game
+void GamePanel::chooseMap() {
+	if (mapSelection.selectedItemIndex == 1 && mapSelection.enterPressKey == 1)
+	{
+		tileManager.chooseMap("Sprites/maps/map02.txt");
+	}
+	else
+	{
+		tileManager.chooseMap("Sprites/maps/map01.txt");
 	}
 }
 

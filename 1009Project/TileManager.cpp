@@ -75,3 +75,10 @@ void TileManager::setUpTiles() {
 		tiles.push_back(row);
 	}
 }
+
+//Choose which map to draw onto the game
+void TileManager::chooseMap(string map) {
+	tiles.clear();
+	readMapFromFile(map);
+	setUpTiles();
+}
