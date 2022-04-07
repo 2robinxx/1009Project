@@ -14,6 +14,7 @@
 #include "MapSelection.h"
 #include "FireBat.h"
 #include "highscore.h"
+#include "highscoreScreen.h"
 
 #ifndef GRID_HEIGHT
 	#define GRID_HEIGHT 50
@@ -51,6 +52,7 @@ private:
 	int maxObjects;
 	
 	int score = 0;
+	int test = 0;
 	string screen;
 
 	//Objects
@@ -64,6 +66,7 @@ private:
 	EndScreen endscreen;
 	MapSelection mapSelection;
 	highscore hs;
+	highscoreScreen scoreScreen;
 
 	//Functions
 	void initVariables();

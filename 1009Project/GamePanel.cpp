@@ -143,6 +143,11 @@ void GamePanel::update() {
 			//Close window
 			window->close();
 		}
+		else if (endscreen.selectedItemIndex == 2 && endscreen.enterPressKey == 1) {
+
+			//Close window
+			screen = "highscore";
+		}
 	}
 	else if (screen == "play") {
 
@@ -253,12 +258,25 @@ void GamePanel::render() {
 		if (score == 0) {
 			cout << "This game was played for: " << playtime << endl;
 			hs.addFile();
-			hs.addScore(playtime);
+			hs.addScore(round(playtime));
 			hs.readScore();
 			hs.writeScore();
 			score = 1;
 		}
 		
+		window->display();
+	}
+	if (this->screen == "highscore") {
+
+		sf::Color color(0, 153, 51);//bg color
+		window->clear(color);
+		if (test == 0) {
+			
+			hs.writeScore();
+			test = 1;
+		}
+		scoreScreen.drawTitle(*window);
+		hs.draw(*window, window->getSize().x, window->getSize().y);
 		window->display();
 	}
 	if (this->screen == "mapSelection") {
@@ -267,6 +285,10 @@ void GamePanel::render() {
 		sf::Color color(0, 153, 51);//bg color
 		window->clear(color);
 		mapSelection.drawTitle(*window);
+		if (test = 0) {
+			hs.readScore();
+			test = 1;
+		}
 		mapSelection.draw(*window, window->getSize().x, window->getSize().y);
 		window->display();
 	}
