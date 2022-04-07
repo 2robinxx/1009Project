@@ -137,6 +137,15 @@ void FireBall::initSprite() {
 	rightSprite2.loadFromFile("Sprites/mob/fireball_right.png");
 }
 
+//Check if player collides with a fireball
+void checkFireCollision(Player& player, FireBall& fire) {
+	player.checkImmune();
+	if (player.sprite.getGlobalBounds().intersects(fire.sprite.getGlobalBounds()) && !player.isImmune) {
+		player.setImmune();
+		player.health -= 1;
+	}
+}
+
 //Interfaces
 FireBall* FireBat::getFireball() {
 	return fireball;

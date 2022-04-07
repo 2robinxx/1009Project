@@ -295,7 +295,7 @@ string Player::getDirection() {
 
 void Player::setImmune() {
 	isImmune = true;
-	immunityTimer = time(NULL) + 1;
+	immunityTimer = time(NULL) + 2;
 }
 
 bool Player::getImmune() {

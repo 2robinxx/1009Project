@@ -132,12 +132,3 @@ void CollisionChecker::checkMobCollision(Player& player, Entity& mob) {
 		player.deductHealth();
 	}
 }
-
-//Check if player collides with a fireball
-void CollisionChecker::checkFireCollision(Player* player, FireBall* fire) {
-	player->checkImmune();
-	if (player->getSprite().getGlobalBounds().intersects(fire->getSprite().getGlobalBounds()) && !player->getImmune()) {
-		player->setImmune();
-		player->deductHealth();
-	}
-}

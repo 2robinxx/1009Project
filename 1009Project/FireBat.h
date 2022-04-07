@@ -46,5 +46,6 @@ public:
 	//Functions
 	inline void setMovement();
 	void initSprite();
+	friend void checkFireCollision(Player&, FireBall&);
 };
 #pragma once

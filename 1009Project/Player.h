@@ -5,6 +5,8 @@
 
 using namespace std;
 
+class FireBall;
+
 //Object for player 1 and 2.
 class Player : public Entity {
 private:
@@ -34,6 +36,7 @@ public:
 	void gainHealth(int);
 	void deductHealth();
 	void deductHealth(int);
+	friend void checkFireCollision(Player&, FireBall&);
 
 	//Operator overload
 	bool operator>(Entity&);
