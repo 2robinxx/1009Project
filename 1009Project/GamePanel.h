@@ -98,6 +98,7 @@ public:
 	inline int checkGoal();
 	inline int checkDeath();
 	double playtime = 0;
+	int map = 0;
 
 	//Interfaces
 	const bool getWindowIsOpen();

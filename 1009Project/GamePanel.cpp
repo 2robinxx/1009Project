@@ -103,6 +103,7 @@ void GamePanel::update() {
 		// Play option
 		if (menu.selectedItemIndex == 0 && menu.enterPressKey == 1) {
 			screen = "play";
+			hs.map = 0;
 		}
 		//Quit option
 		else if (menu.selectedItemIndex == 2 && menu.enterPressKey == 1) {
@@ -119,12 +120,17 @@ void GamePanel::update() {
 	if (screen == "mapSelection") {
 		// Underground Map
 		if (mapSelection.selectedItemIndex == 0 && mapSelection.enterPressKey == 1) {
+			
 			chooseMap();
+			hs.map = 0;
 			screen = "play";
+
 		}
 		// Ice Map
 		else if (mapSelection.selectedItemIndex == 1 && mapSelection.enterPressKey == 1) {
+			
 			chooseMap();
+			hs.map = 1;
 			screen = "play";
 		}
 	}

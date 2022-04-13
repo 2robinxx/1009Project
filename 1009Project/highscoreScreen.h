@@ -10,12 +10,9 @@ private:
 	sf::Text score[9];
 	sf::Keyboard::Key upPress, downPress, enterPress;
 	highscore hs;
-	
 
 public:
 	highscoreScreen();
-	void readScore();
-	void checkFile();
 	
 	void drawTitle(sf::RenderTarget& target);
 	double highScores[9];
