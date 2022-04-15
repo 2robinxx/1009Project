@@ -139,11 +139,6 @@ int Menu::toggleMenu()
         MoveDown();
     }
 
-    if (sf::Keyboard::isKeyPressed(upPress))
-    {
-        MoveUp();
-    }
-
     if (sf::Keyboard::isKeyPressed(enterPress))
     {
         enterPressKey = 1;

@@ -87,6 +87,7 @@ public:
 	void pollEvents();
 	void update();
 	void render();
+	void restartGame();
 	void renderMap();
 	void chooseMap();
 	void spawnObj();

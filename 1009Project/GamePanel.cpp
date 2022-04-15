@@ -104,6 +104,7 @@ void GamePanel::update() {
 		if (menu.selectedItemIndex == 0 && menu.enterPressKey == 1) {
 			screen = "play";
 			hs.map = 0;
+			menu.enterPressKey = 0;
 		}
 		//Quit option
 		else if (menu.selectedItemIndex == 2 && menu.enterPressKey == 1) {
@@ -115,6 +116,7 @@ void GamePanel::update() {
 		else if (menu.selectedItemIndex == 1 && menu.enterPressKey == 1) {
 
 			screen = "mapSelection";
+			menu.enterPressKey = 0;
 		}
 	}
 	if (screen == "mapSelection") {
@@ -124,7 +126,7 @@ void GamePanel::update() {
 			chooseMap();
 			hs.map = 0;
 			screen = "play";
-
+			mapSelection.enterPressKey = 0;
 		}
 		// Ice Map
 		else if (mapSelection.selectedItemIndex == 1 && mapSelection.enterPressKey == 1) {
@@ -132,6 +134,7 @@ void GamePanel::update() {
 			chooseMap();
 			hs.map = 1;
 			screen = "play";
+			mapSelection.enterPressKey = 0;
 		}
 	}
 	if (screen == "end") {
@@ -141,7 +144,9 @@ void GamePanel::update() {
 
 		// Play option
 		if (endscreen.selectedItemIndex == 0 && endscreen.enterPressKey == 1) {
-			screen = "play";
+			restartGame();
+			screen = "menu";
+			endscreen.enterPressKey = 0;
 		}
 		//Quit option
 		else if (endscreen.selectedItemIndex == 1 && endscreen.enterPressKey == 1) {
@@ -153,6 +158,7 @@ void GamePanel::update() {
 
 			//Close window
 			screen = "highscore";
+			endscreen.enterPressKey = 0;
 		}
 	}
 	else if (screen == "play") {
@@ -334,6 +340,17 @@ void GamePanel::render() {
 
 		window->setView(window->getDefaultView());
 	}
+}
+
+//Restart the game by re-initializing all objects.
+void GamePanel::restartGame() {
+	player1 = Player(1);
+	player2 = Player(2);
+	bat = Bat(48.f, 48.f);
+	firebat1 = FireBat(48.f, 48.f, &player1);
+	firebat2 = FireBat(48.f, 48.f, (WORLD_WIDTH - 48), 0, &player2);
+	player1.setSprite("right");
+	player2.setSprite("left");
 }
 
 //Draw tiles onto the game

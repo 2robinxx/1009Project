@@ -1,14 +1,19 @@
-﻿  highscore.cpp
-C:\Users\v_vis\Desktop\1009 C++ assignment\1009Project\highscore.cpp(112,24): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\v_vis\Desktop\1009 C++ assignment\1009Project\highscore.cpp(117,80): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+﻿  Menu.cpp
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\Menu.cpp(22,38): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\Menu.cpp(65,83): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\v_vis\Desktop\1009 C++ assignment\1009Project\highscore.cpp(137,24): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\v_vis\Desktop\1009 C++ assignment\1009Project\highscore.cpp(142,80): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\Menu.cpp(80,87): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-  1009Project.vcxproj -> C:\Users\v_vis\Desktop\1009 C++ assignment\Debug\1009Project.exe
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\Menu.cpp(97,84): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Soh Wen Yue\source\repos\1009Project\1009Project\Menu.cpp(148): warning C4715: 'Menu::toggleMenu': not all control paths return a value
+  1009Project.vcxproj -> C:\Users\Soh Wen Yue\source\repos\1009Project\Debug\1009Project.exe
